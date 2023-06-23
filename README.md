@@ -1,5 +1,5 @@
-# SCCC-CPT-200-Team-1
 # Code Crate
+# By SCCC CPT 200, Team-1
 Web-based Password Tracker
 
 ## Meet The Team
