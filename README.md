@@ -10,7 +10,7 @@ Web-based Password Tracker
 
 ## Features
 - User Signin
-- Database
+- Data encryption
 
 Frontend: HTML, Blazor
 
