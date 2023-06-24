@@ -1,19 +1,15 @@
 # Code Crate
 # By SCCC CPT 200, Team-1
-Web-based Password Tracker
+Web-based Password Tracker developed by a team of students at St. Charles Community College. 
 
 ## Meet The Team
-- Connor Clawson (Manager, Backend)
-- Phuong Anh Nguyen (Developer, Backend)
-- Bailey Ducommun (Developer Frontend)
-- Ryan Schoonover (Developer, Frontend)
+- Connor Clawson (Manager)
+- Bailey Ducommun (Developer)
+- Phuong Anh Nguyen (Developer)
+- Ryan Schoonover (Developer)
 
 ## Features
-- User Signin
+- User Sign-in
 - Data encryption
 
-Frontend: HTML, Blazor
-
-Middle: API C#
-
-Backend: File editor/reader C#
+This repository is for the academic use of its contributors.
