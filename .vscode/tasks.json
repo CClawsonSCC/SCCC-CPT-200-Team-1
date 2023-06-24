@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/gitCode_Crate/SCCC-CPT-200-Team-1/Code Crate/Code Crate.csproj",
+                "${workspaceFolder}/gitCode_Crate/SCCC-CPT-200-Team-1/Code-Crate/Code Crate.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/gitCode_Crate/SCCC-CPT-200-Team-1/Code Crate/Code Crate.csproj",
+                "${workspaceFolder}/gitCode_Crate/SCCC-CPT-200-Team-1/Code-Crate/Code Crate.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/gitCode_Crate/SCCC-CPT-200-Team-1/Code Crate/Code Crate.csproj"
+                "${workspaceFolder}/gitCode_Crate/SCCC-CPT-200-Team-1/Code-Crate/Code Crate.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
