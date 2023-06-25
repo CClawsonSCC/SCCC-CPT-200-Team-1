@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Code-Crate.Client.props" />
+</Project>
