@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\gitCode_Crate\\SCCC-CPT-200-Team-1\\gitCode_Crate\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj": {}
+    "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj": {}
   },
   "projects": {
-    "C:\\gitCode_Crate\\SCCC-CPT-200-Team-1\\gitCode_Crate\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj": {
+    "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\gitCode_Crate\\SCCC-CPT-200-Team-1\\gitCode_Crate\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj",
+        "projectUniqueName": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj",
         "projectName": "Code Crate",
-        "projectPath": "C:\\gitCode_Crate\\SCCC-CPT-200-Team-1\\gitCode_Crate\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj",
+        "projectPath": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\Code Crate.csproj",
         "packagesPath": "C:\\Users\\baile\\.nuget\\packages\\",
-        "outputPath": "C:\\gitCode_Crate\\SCCC-CPT-200-Team-1\\gitCode_Crate\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\",
+        "outputPath": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\baile\\AppData\\Roaming\\NuGet\\NuGet.Config",

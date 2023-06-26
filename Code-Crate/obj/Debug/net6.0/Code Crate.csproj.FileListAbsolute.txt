@@ -122,3 +122,49 @@ C:\gitCode_Crate\SCCC-CPT-200-Team-1\gitCode_Crate\SCCC-CPT-200-Team-1\Code-Crat
 C:\gitCode_Crate\SCCC-CPT-200-Team-1\gitCode_Crate\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.pdb
 C:\gitCode_Crate\SCCC-CPT-200-Team-1\gitCode_Crate\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.genruntimeconfig.cache
 C:\gitCode_Crate\SCCC-CPT-200-Team-1\gitCode_Crate\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\ref\Code Crate.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\appsettings.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Code Crate.staticwebassets.runtime.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Code Crate.exe
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Code Crate.deps.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Code Crate.runtimeconfig.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Code Crate.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Code Crate.pdb
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Blazored.FluentValidation.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\CsvHelper.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\Microsoft.JSInterop.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.csproj.AssemblyReference.cache
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.AssemblyInfoInputs.cache
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.AssemblyInfo.cs
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.csproj.CoreCompileInputs.cache
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.RazorAssemblyInfo.cache
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.RazorAssemblyInfo.cs
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets\msbuild.Code Crate.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets\msbuild.build.Code Crate.props
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Code Crate.props
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Code Crate.props
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\scopedcss\bundle\Code Crate.styles.css
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\scopedcss\projectbundle\Code Crate.bundle.scp.css
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.csproj.CopyComplete
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\refint\Code Crate.dll
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.pdb
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\Code Crate.genruntimeconfig.cache
+C:\Users\baile\SCCC-CPT-200-Team-1\Code-Crate\obj\Debug\net6.0\ref\Code Crate.dll
