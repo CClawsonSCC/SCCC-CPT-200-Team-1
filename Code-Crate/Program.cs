@@ -1,7 +1,7 @@
-using Code_Crate.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-
+using CodeCrateData;
+using Code_Crate.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddScoped<UserAccountService>();
+builder.Services.AddSingleton<UserAccountDataCsv>();
+
+
 
 var app = builder.Build();
 
