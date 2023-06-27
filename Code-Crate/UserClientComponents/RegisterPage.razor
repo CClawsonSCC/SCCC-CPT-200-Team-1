@@ -1,8 +1,10 @@
 @page "/RegisterPage"
 @layout NoMenuLayout
-
+@using CodeCrateData
+@inject UserAccountService _userAccountService
 
 <PageTitle>Register</PageTitle>
+
 <body style="background-color: #F5F5F4;">
     <section class="vh-100">
         <div class="container py-5 h-100">
@@ -14,35 +16,47 @@
             
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                 <h1 style="text-align:center; padding-bottom: 50px;">Register Account</h1>
-                <form>
+                <EditForm Model="@userAccount">
                 <!-- Email inputs -->
                 <div class="form-outline mb-4">
-                    <input type="email" id="form1Example13" class="form-control form-control-lg" />
+                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Username"/>
                     <label class="form-label" for="form1Example13">Username</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Password"/>
                     <label class="form-label" for="form1Example23">Password</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                    <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Email"/>
                     <label class="form-label" for="form1Example23">Email</label>
                 </div>
 
                 <!-- Submit button -->
-                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Register</a>
+                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" @onclick="RegisterAccount" role="button">Register</a>
                 <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Cancel</a>
 
-                </form>
+                </EditForm>
             </div>
             </div>
         </div>
     </section>
 </body>
-
-<a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/MainDashboard" role="button">Register Account</a>
-
 <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Cancel</a>
+
+
+@code 
+{
+    protected UserAccount userAccount = new();
+
+
+
+    protected async Task RegisterAccount() {
+        await _userAccountService.AddUserAccount(userAccount);
+    }
+
+
+
+}
