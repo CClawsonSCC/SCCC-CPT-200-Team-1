@@ -15,27 +15,43 @@
             </div>
             
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <h1 style="text-align:center; padding-bottom: 50px;">Register Account</h1>
+                <h1 style="text-align:left; padding-bottom: 50px;">Register Account</h1>
                 <EditForm Model="@userAccount">
+                <DataAnnotationsValidator />
                 <!-- Email inputs -->
                 <div class="form-outline mb-4">
-                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Username"/>
+                    <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Username"/>
                     <label class="form-label" for="form1Example13">Username</label>
+                    
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Password"/>
+                    <InputText type="password" class="form-control noWhite" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Password"/>
                     <label class="form-label" for="form1Example23">Password</label>
+                    <ValidationMessage For="@(()=> userAccount.Password)" />
+                </div>
+                <div class="form-outline mb-4">
+                    <InputText type="password" class="form-control" style = "width:500px;border:1px solid;" @bind-Value="@cPassword"/>
+                    
+                    @if (userAccount.Password != "" && cPassword != "" && cPassword != userAccount.Password) {
+                        <label class="form-label" style="color:red;" for="form1Example23"> Passwords do not match!</label>
+                    }
+                    else {
+                        <label class="form-label" for="form1Example23">Confirm Password</label>
+                    }
                 </div>
 
                 <div class="form-outline mb-4">
-                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Email"/>
+                    <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Email"/>
                     <label class="form-label" for="form1Example23">Email</label>
                 </div>
 
                 <!-- Submit button -->
-                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" @onclick="RegisterAccount" role="button">Register</a>
+                @if (userAccount.Password != "" && cPassword != "" && cPassword == userAccount.Password) {
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" @onclick="RegisterAccount" role="button">Register</a>
+
+                }
                 <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Cancel</a>
 
                 </EditForm>
@@ -51,7 +67,7 @@
 {
     protected UserAccount userAccount = new();
 
-
+    private string cPassword = "";
 
     protected async Task RegisterAccount() {
         await _userAccountService.AddUserAccount(userAccount);

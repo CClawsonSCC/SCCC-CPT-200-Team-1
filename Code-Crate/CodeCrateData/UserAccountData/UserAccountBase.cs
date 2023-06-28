@@ -9,8 +9,9 @@ namespace CodeCrateData {
         //[MaxLength(25)]
         public string Username { get; set; } = null!;
 
-       //[Required(ErrorMessage = "Password must be required")]
-        //[MaxLength(25)]
+        //[Required(ErrorMessage = "Password must be required")]
+        [RegularExpression(@"[^\s]+", ErrorMessage = "Password can't contain spaces!")]
+        [MaxLength(16)]
         public string Password { get; set; } = null!;
 
         //[Required(ErrorMessage = "Email must be required")]
