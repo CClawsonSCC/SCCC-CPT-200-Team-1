@@ -1,6 +1,8 @@
 @page "/"
 @layout NoMenuLayout
 @inject NavigationManager NavManager
+@using CodeCrateData
+@inject UserAccountService _userAccountService
 
 <PageTitle>Login</PageTitle>
 
@@ -17,18 +19,19 @@
             
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
                 <h1 style="text-align:center; padding-bottom: 50px;">Code Crate</h1>
-                <form>
-                <!-- Email inputs -->
-                <div class="form-outline mb-4">
-                    <input type="email" id="form1Example13" class="form-control form-control-lg" />
-                    <label class="form-label" for="form1Example13">Username</label>
-                </div>
+                <EditForm Model="@userAccount">
+                  
+                    <div class="form-outline mb-4">
+                        <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Username"/>
+                        <label class="form-label" for="form1Example13">Username</label>
+                    </div>
 
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <input type="password" id="form1Example23" class="form-control form-control-lg" />
-                    <label class="form-label" for="form1Example23">Password</label>
-                </div>
+                    <div class="form-outline mb-4">
+                        <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Password"/>
+                        <label class="form-label" for="form1Example23">Password</label>
+                    </div>
+
+                </EditForm>
 
                 <div class="d-flex justify-content-around align-items-center mb-4">
                     <!-- Checkbox -->
@@ -40,17 +43,33 @@
                 </div>
 
                 <!-- Submit button -->
-                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/MainDashboard" role="button">Sign in</a>
-
+                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" @onclick="checkUser" role="button">Sign in</a>
+                
                 <div class="divider d-flex align-items-center my-4">
                     <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                 </div>
 
                 <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/RegisterPage" role="button">Register</a>
-
-                </form>
             </div>
             </div>
         </div>
     </section>
 </body>
+
+
+
+@code {
+
+    protected UserAccount userAccount = new();
+
+    private async Task checkUser() {
+        var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
+            NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
+        
+
+    }
+    
+
+
+
+}

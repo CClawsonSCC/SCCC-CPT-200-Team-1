@@ -1,4 +1,34 @@
-@page "/MainDashboard"
-@layout MainLayout
+@page "/MainDashboard/{userID:int}"
+@using CodeCrateData
+@inject UserAccountService _userAccountService
 
-<h1>Test Dashboard</h1>
+
+
+
+<div>
+    <NavMenu _userAccount = "@userAccount"/>
+</div>
+<div>
+    <h1>DASHBOARD</h1>
+</div>
+
+
+
+
+
+
+
+
+@code {
+    [Parameter] public int userID { get; set; }
+    
+    protected UserAccount userAccount = new();
+
+    
+    protected override async Task OnInitializedAsync() {   
+       userAccount = await _userAccountService.GetAccountData(userID);
+    }
+    
+
+
+}

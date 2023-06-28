@@ -1103,11 +1103,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
+      "projectUniqueName": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
       "projectName": "Code-Crate",
-      "projectPath": "e:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
+      "projectPath": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
       "packagesPath": "C:\\Users\\baile\\.nuget\\packages\\",
-      "outputPath": "e:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\",
+      "outputPath": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\baile\\AppData\\Roaming\\NuGet\\NuGet.Config",
