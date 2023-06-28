@@ -17,11 +17,6 @@ namespace CodeCrateData {
         //[Required(ErrorMessage = "Email must be required")]
         //[MaxLength(25)]
         public string Email {get; set;} = null!;
-
-        public static implicit operator int(UserAccount v)
-        {
-            throw new NotImplementedException();
-        }
     }
     
 
