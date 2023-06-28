@@ -19,6 +19,8 @@ namespace CodeCrateData {
         public string ConfirmPassword { get; set; } = "";
 
         [Required(ErrorMessage = "Email must be required")]
+        [RegularExpression(@"^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$", ErrorMessage = "Invalid email address.")]
+
         [MaxLength(25)]
         public string Email {get; set;} = null!;
     }
