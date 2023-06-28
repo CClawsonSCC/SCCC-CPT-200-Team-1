@@ -17,6 +17,10 @@ namespace CodeCrateData {
         //[MaxLength(25)]
         public string Email {get; set;} = null!;
 
+        public static implicit operator int(UserAccount v)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 

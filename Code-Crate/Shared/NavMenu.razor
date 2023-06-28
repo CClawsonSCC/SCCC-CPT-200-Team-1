@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using CodeCrateData
+@inject UserAccountService _userAccountService
+
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Title of the document</title>
@@ -59,25 +63,22 @@
     <nav>
       <ul class="menu">
         <li>
-          Italy
+          @_userAccount.Username
           <ul class="sub-menu">
-            <li>Rome</li>
-            <li>Milan</li>
-            <li>Venice</li>
-            <li>Lacio</li>
-            <li>Florence</li>
-          </ul>
-        </li>
-        <li>
-          France
-          <ul class="sub-menu">
-            <li>Paris</li>
-            <li>Bordeau</li>
-            <li>Marseille</li>
-            <li>Toulouse</li>
+            <li>Home</li>
+            <li>About</li>
+            <li>Sign-out</li>
           </ul>
         </li>
       </ul>
     </nav>
   </body>
 </html>
+
+
+@code {
+    [Parameter] public UserAccount _userAccount { get; set; }
+    
+
+
+}
