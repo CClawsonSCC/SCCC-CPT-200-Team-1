@@ -18,16 +18,16 @@
             </div>
             
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
-                <h1 style="text-align:center; padding-bottom: 50px;">Code Crate</h1>
+                <h1 style="text-align:left; padding-bottom: 50px;">Code Crate</h1>
                 <EditForm Model="@userAccount">
                   
                     <div class="form-outline mb-4">
-                        <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Username"/>
+                        <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Username"/>
                         <label class="form-label" for="form1Example13">Username</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="userAccount.Password"/>
+                        <InputText type="password" class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Password"/>
                         <label class="form-label" for="form1Example23">Password</label>
                     </div>
 
