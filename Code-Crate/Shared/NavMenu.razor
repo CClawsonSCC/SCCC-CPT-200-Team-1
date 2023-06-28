@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using CodeCrateData
+@inject UserAccountService _userAccountService
+
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Title of the document</title>
@@ -11,10 +15,11 @@
       }
  
       nav {
-        text-align: center;
+        text-align: Left;
       }
       .menu {
-        display: inline-block;
+        <!--display: inline-block; -->
+        float: right;
       }
       .menu>li {
         float: left;
@@ -45,7 +50,7 @@
         border-bottom: 0;
       }
       .sub-menu li:hover {
-        background: black;
+        background: rgb(112, 112, 112);
       }
       .menu>li:hover .sub-menu li {
         transform: scale(1);
@@ -59,25 +64,22 @@
     <nav>
       <ul class="menu">
         <li>
-          Italy
+          <!-- @userAccount.Username -->
+          Hello User (Temp)
           <ul class="sub-menu">
-            <li>Rome</li>
-            <li>Milan</li>
-            <li>Venice</li>
-            <li>Lacio</li>
-            <li>Florence</li>
+            <li>Account</li>
+            <li>Contact Us</li>
+            <li>Sign Out</li>
+            
           </ul>
         </li>
-        <li>
-          France
-          <ul class="sub-menu">
-            <li>Paris</li>
-            <li>Bordeau</li>
-            <li>Marseille</li>
-            <li>Toulouse</li>
-          </ul>
-        </li>
+        
       </ul>
     </nav>
   </body>
 </html>
+
+@code{
+ protected UserAccount userAccount = new();
+
+}
