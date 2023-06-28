@@ -432,6 +432,65 @@
         }
       },
       {
+        "HashCode": 810818717,
+        "Kind": "Components.Component",
+        "Name": "Code_Crate.Shared.NavMenu",
+        "AssemblyName": "Code-Crate",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "_userAccount",
+            "TypeName": "CodeCrateData.UserAccount",
+            "Metadata": {
+              "Common.PropertyName": "_userAccount",
+              "Common.GloballyQualifiedTypeName": "global::CodeCrateData.UserAccount"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Code_Crate.Shared.NavMenu",
+          "Common.TypeNameIdentifier": "NavMenu",
+          "Common.TypeNamespace": "Code_Crate.Shared",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1312547927,
+        "Kind": "Components.Component",
+        "Name": "Code_Crate.Shared.NavMenu",
+        "AssemblyName": "Code-Crate",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Code_Crate.Shared.NavMenu"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "_userAccount",
+            "TypeName": "CodeCrateData.UserAccount",
+            "Metadata": {
+              "Common.PropertyName": "_userAccount",
+              "Common.GloballyQualifiedTypeName": "global::CodeCrateData.UserAccount"
+            }
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Code_Crate.Shared.NavMenu",
+          "Common.TypeNameIdentifier": "NavMenu",
+          "Common.TypeNamespace": "Code_Crate.Shared",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
         "HashCode": 1944174676,
         "Kind": "Components.Component",
         "Name": "Code_Crate.UserClientComponents.RegisterPage",

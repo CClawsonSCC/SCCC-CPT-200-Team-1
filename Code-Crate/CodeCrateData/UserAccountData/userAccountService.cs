@@ -21,7 +21,7 @@ namespace CodeCrateData {
             userAccount.UserID = lastId + 1;
             userAccountDict.Add(userAccount.UserID, userAccount);
             await _userAccountCsv.WriteCollection(userAccountDict.Values);
-            userAccountDict = (await _userAccountCsv.LoadCollection()).ToDictionary(r => r.UserID, r => r);
+            
         }
 
 
