@@ -1,7 +1,6 @@
 ﻿@using CodeCrateData
 @inject UserAccountService _userAccountService
 
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,10 +14,11 @@
       }
  
       nav {
-        text-align: center;
+        text-align: Left;
       }
       .menu {
-        display: inline-block;
+        <!--display: inline-block; -->
+        float: right;
       }
       .menu>li {
         float: left;
@@ -49,7 +49,7 @@
         border-bottom: 0;
       }
       .sub-menu li:hover {
-        background: black;
+        background: rgb(112, 112, 112);
       }
       .menu>li:hover .sub-menu li {
         transform: scale(1);

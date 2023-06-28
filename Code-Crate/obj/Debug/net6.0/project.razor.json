@@ -432,65 +432,6 @@
         }
       },
       {
-        "HashCode": 810818717,
-        "Kind": "Components.Component",
-        "Name": "Code_Crate.Shared.NavMenu",
-        "AssemblyName": "Code-Crate",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "NavMenu"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "_userAccount",
-            "TypeName": "CodeCrateData.UserAccount",
-            "Metadata": {
-              "Common.PropertyName": "_userAccount",
-              "Common.GloballyQualifiedTypeName": "global::CodeCrateData.UserAccount"
-            }
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "Code_Crate.Shared.NavMenu",
-          "Common.TypeNameIdentifier": "NavMenu",
-          "Common.TypeNamespace": "Code_Crate.Shared",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1312547927,
-        "Kind": "Components.Component",
-        "Name": "Code_Crate.Shared.NavMenu",
-        "AssemblyName": "Code-Crate",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Code_Crate.Shared.NavMenu"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "_userAccount",
-            "TypeName": "CodeCrateData.UserAccount",
-            "Metadata": {
-              "Common.PropertyName": "_userAccount",
-              "Common.GloballyQualifiedTypeName": "global::CodeCrateData.UserAccount"
-            }
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "Code_Crate.Shared.NavMenu",
-          "Common.TypeNameIdentifier": "NavMenu",
-          "Common.TypeNamespace": "Code_Crate.Shared",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
         "HashCode": 1944174676,
         "Kind": "Components.Component",
         "Name": "Code_Crate.UserClientComponents.RegisterPage",
@@ -522,43 +463,6 @@
         "Metadata": {
           "Common.TypeName": "Code_Crate.UserClientComponents.RegisterPage",
           "Common.TypeNameIdentifier": "RegisterPage",
-          "Common.TypeNamespace": "Code_Crate.UserClientComponents",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1888712915,
-        "Kind": "Components.Component",
-        "Name": "Code_Crate.UserClientComponents.LoginPage",
-        "AssemblyName": "Code-Crate",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "LoginPage"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "Code_Crate.UserClientComponents.LoginPage",
-          "Common.TypeNameIdentifier": "LoginPage",
-          "Common.TypeNamespace": "Code_Crate.UserClientComponents",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": -1954237912,
-        "Kind": "Components.Component",
-        "Name": "Code_Crate.UserClientComponents.LoginPage",
-        "AssemblyName": "Code-Crate",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Code_Crate.UserClientComponents.LoginPage"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "Code_Crate.UserClientComponents.LoginPage",
-          "Common.TypeNameIdentifier": "LoginPage",
           "Common.TypeNamespace": "Code_Crate.UserClientComponents",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
@@ -618,6 +522,43 @@
         "Metadata": {
           "Common.TypeName": "Code_Crate.UserClientComponents.MainDashboard",
           "Common.TypeNameIdentifier": "MainDashboard",
+          "Common.TypeNamespace": "Code_Crate.UserClientComponents",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1888712915,
+        "Kind": "Components.Component",
+        "Name": "Code_Crate.UserClientComponents.LoginPage",
+        "AssemblyName": "Code-Crate",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LoginPage"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Code_Crate.UserClientComponents.LoginPage",
+          "Common.TypeNameIdentifier": "LoginPage",
+          "Common.TypeNamespace": "Code_Crate.UserClientComponents",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1954237912,
+        "Kind": "Components.Component",
+        "Name": "Code_Crate.UserClientComponents.LoginPage",
+        "AssemblyName": "Code-Crate",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Code_Crate.UserClientComponents.LoginPage"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Code_Crate.UserClientComponents.LoginPage",
+          "Common.TypeNameIdentifier": "LoginPage",
           "Common.TypeNamespace": "Code_Crate.UserClientComponents",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
