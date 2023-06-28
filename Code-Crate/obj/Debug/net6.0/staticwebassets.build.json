@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XgU5BJEWswSZAyueSc1z9SsmADx6YsxwTxPWZz2wCgQ=",
+  "Hash": "OHQhrKSeQAXMs699sjRdWaIe1uqZC2NyOfqVc3oTop0=",
   "Source": "Code-Crate",
   "BasePath": "_content/Code-Crate",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "Code-Crate\\wwwroot",
       "Source": "Code-Crate",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "Pattern": "**"
     }
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "C:\\Users\\baile\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\0.1.0-alpha.22351.1\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Code-Crate.styles.css",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Code-Crate.styles.css",
       "SourceId": "Code-Crate",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "Code-Crate.styles.css",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Code-Crate.styles.css"
+      "OriginalItemSpec": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Code-Crate.styles.css"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Code-Crate.bundle.scp.css",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Code-Crate.bundle.scp.css",
       "SourceId": "Code-Crate",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "Code-Crate.bundle.scp.css",
       "AssetKind": "All",
@@ -82,13 +82,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Code-Crate.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Code-Crate.bundle.scp.css"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\css\\site.css",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\favicon.ico",
       "SourceId": "Code-Crate",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\baile\\SCCC-CPT-200-Team-1\\Code-Crate\\wwwroot\\",
       "BasePath": "_content/Code-Crate",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
