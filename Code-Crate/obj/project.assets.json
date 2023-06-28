@@ -1098,19 +1098,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\baile\\.nuget\\packages\\": {}
+    "C:\\Users\\ryans\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
+      "projectUniqueName": "D:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
       "projectName": "Code-Crate",
-      "projectPath": "e:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
-      "packagesPath": "C:\\Users\\baile\\.nuget\\packages\\",
-      "outputPath": "e:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\",
+      "projectPath": "D:\\SCCC-CPT-200-Team-1\\Code-Crate\\Code-Crate.csproj",
+      "packagesPath": "C:\\Users\\ryans\\.nuget\\packages\\",
+      "outputPath": "D:\\SCCC-CPT-200-Team-1\\Code-Crate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\baile\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ryans\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1118,6 +1118,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1176,7 +1177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
