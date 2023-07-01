@@ -2,6 +2,7 @@
 @layout NoMenuLayout
 @using CodeCrateData
 @inject UserAccountService _userAccountService
+@inject NavigationManager NavManager
 
 <PageTitle>Register</PageTitle>
 
@@ -60,7 +61,7 @@
                     <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" disabled="true" href="/" @onclick="RegisterAccount" role="button">Register</button>
                }
                else {
-                <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" disabled="@(!context.Validate())" href="/" @onclick="RegisterAccount" role="button">Register</button>
+                <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" disabled="@(!context.Validate())" @onclick="RegisterAccount" role="button">Register</button>
 
                }
                 <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Cancel</a>
@@ -80,6 +81,8 @@
 
     protected async Task RegisterAccount() {
         await _userAccountService.AddUserAccount(userAccount);
+        NavManager.NavigateTo("/");
+
     }
 
 
