@@ -57,6 +57,10 @@
 
     protected UserAccount userAccount = new();
 
+
+    protected override async Task OnInitializedAsync() { 
+        await _userAccountService.GetUserAccounts();
+    }
     private async Task checkUser() {
         var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
             NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");

@@ -1,5 +1,6 @@
 ﻿@using CodeCrateData
 @inject UserAccountService _userAccountService
+@inject NavigationManager NavManager
 
 <!DOCTYPE html>
 <html>
@@ -66,7 +67,7 @@
           <ul class="sub-menu">
             <li>Home</li>
             <li>About</li>
-            <li>Sign-out</li>
+            <li @onclick="SignOutBtn">Sign-out</li>
           </ul>
         </li>
       </ul>
@@ -79,5 +80,8 @@
     [Parameter] public UserAccount _userAccount { get; set; }
     
 
+    public void SignOutBtn() {
+        NavManager.NavigateTo("/");
+    }
 
 }

@@ -11,10 +11,14 @@ namespace CodeCrateData {
             _userAccountCsv = userAccountCsv;
         }
 
+        // This will keep the CSV from overriding on each time the home page is loaded up.
+        // It loads up the current values in the CSV file and stores them in the dictionary.
+        // Everytime this app is loaded-up a new instance of the dictionary is created, but if we immediately fill that dictionary up with values in the CSV file we will be good to go.
         public async Task<Dictionary<int, UserAccount>> GetUserAccounts() {  
                 userAccountDict = (await _userAccountCsv.LoadCollection()).ToDictionary(r => r.UserID, r => r);
                 return userAccountDict;
         }
+
         // Register a new user
         public async Task AddUserAccount(UserAccount userAccount) {  
             var lastId = userAccountDict.Count() == 0 ? 0 : userAccountDict.Keys.Max();
