@@ -20,18 +20,21 @@
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
                 <h1 style="text-align:left; padding-bottom: 50px;">Code Crate</h1>
                 <EditForm Model="@userAccount">
+                
                   
                     <div class="form-outline mb-4">
+                        
                         <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Username"/>
                         <label class="form-label" for="form1Example13">Username</label>
                     </div>
 
                     <div class="form-outline mb-4">
+                        
                         <InputText type="password" class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Password"/>
                         <label class="form-label" for="form1Example23">Password</label>
                     </div>
 
-                </EditForm>
+      
 
                 <div class="d-flex justify-content-around align-items-center mb-4">
                     <!-- Checkbox -->
@@ -43,13 +46,10 @@
                 </div>
 
                 <!-- Submit button -->
-                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" @onclick="checkUser" role="button">Sign in</a>
                 
-                <div class="divider d-flex align-items-center my-4">
-                    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                </div>
-
+                <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" @onclick="checkUser" role="button">Sign in</button>
                 <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/RegisterPage" role="button">Register</a>
+                </EditForm>
             </div>
             </div>
         </div>
@@ -62,11 +62,18 @@
 
     protected UserAccount userAccount = new();
 
-    private async Task checkUser() {
-        var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
-            NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
-        
 
+    protected override async Task OnInitializedAsync() { 
+        await _userAccountService.GetUserAccounts();
+    }
+    private async Task checkUser() {
+        if (userAccount.Username != "" && userAccount.Password != "") {
+            var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
+            if (_userAccount.UserID != 0) {
+                NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
+            }
+            
+        }
     }
     
 

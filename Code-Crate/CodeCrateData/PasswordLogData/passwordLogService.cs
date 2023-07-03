@@ -1,12 +1,52 @@
 namespace CodeCrateData {
 
+    public class PasswordLogService {   
+
+        Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
+        Dictionary<int, PasswordLog> userCredentials = new Dictionary<int, PasswordLog>(); // Current User Dictionary
 
 
+        int incrementDictKeys = 0;
+        PasswordLogDataCsv _passLogCsv;
 
+        public PasswordLogService(PasswordLogDataCsv passwordLogCsv) {
+            _passLogCsv = passwordLogCsv;
+        }
 
+        // This will keep the CSV from overriding on each time the home page is loaded up.
+        // It loads up the current values in the CSV file and stores them in the dictionary.
+        // Everytime this app is loaded-up a new instance of the dictionary is created, but if we immediately fill that dictionary up with values in the CSV file we will be good to go.
+        public async Task<IEnumerable<PasswordLog>> GetUserPasswords(int userID) {
+            passwordLogDict = (await _passLogCsv.LoadCollection()).ToDictionary(r => r.PassID, r => r);
+            userCredentials.Clear();
+            foreach (var credential in passwordLogDict.Values) {
+                if (userID == credential.UserID)
+                {   
+                    incrementDictKeys++;
+                    userCredentials.Add(incrementDictKeys, credential);
+                }
+            }
+            return userCredentials.Values;
+        }
 
+        // Register a new user
+        public async Task AddUserPassword(PasswordLog passLog, int userID) {  
+            var lastId = passwordLogDict.Count() == 0 ? 0 : passwordLogDict.Keys.Max();
+            passLog.PassID = lastId + 1;
+            passLog.UserID = userID;
+            passwordLogDict.Add(passLog.PassID, passLog);
+            await _passLogCsv.WriteCollection(passwordLogDict.Values);
+            
+        }
 
+        public Task<PasswordLog> GetPassLogData(int id) {   
+            return Task.FromResult(passwordLogDict[id]);
+        }
 
-
-    
+        public async Task UpdatePassLog(PasswordLog passLog) {   
+            passwordLogDict[passLog.PassID] = passLog;
+            await _passLogCsv.WriteCollection(passwordLogDict.Values);
+            
+        }
+    }
 }

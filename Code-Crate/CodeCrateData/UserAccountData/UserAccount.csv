@@ -1,4 +1,5 @@
-UserID,Username,Password,Email
-1,baes,asd,asd
-2,test,asd,asd
-3,hey,as,ds
+UserID,Username,Password,ConfirmPassword,Email
+1,testw,testw,testw,testw@gmail.com
+2,testing,testing,testing,testing@gmail.com
+3,gmail,gamil,gamil,gmail@gmail.com
+4,aaa,aaa,aaa,aaa@gmail.com

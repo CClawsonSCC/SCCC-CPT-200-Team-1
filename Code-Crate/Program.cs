@@ -11,6 +11,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<UserAccountService>();
 builder.Services.AddSingleton<UserAccountDataCsv>();
+builder.Services.AddScoped<PasswordLogService>();
+builder.Services.AddSingleton<PasswordLogDataCsv>();
 
 
 
