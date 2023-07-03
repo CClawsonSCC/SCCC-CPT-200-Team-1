@@ -4,9 +4,18 @@
     overflow-y: auto;
     margin: auto;
     width: 85%;
-    border: 3px solid black;
     padding: 10px;
 }
+
+section {
+    background-image: url('https://i.ibb.co/9g7ysyN/transparent-Back-Ground-Image.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50%;
+    background-position: center;
+    
+  }
+
 
 /* Sticky header while scrolling */
 ::deep thead {
@@ -14,9 +23,17 @@
     top: 0;
     background-color: #eee;
 }
+::deep tr {
+    height: 30px;
+    border-left:0.5px solid silver;
+    border-bottom: 0.5px solid silver;
+    border-right: 0.5px solid silver;
+}
+
 
 /* Subtle stripe effect */
 ::deep tr:nth-child(even) {
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
+    
 }
 ::deep table { min-width: 100%; }

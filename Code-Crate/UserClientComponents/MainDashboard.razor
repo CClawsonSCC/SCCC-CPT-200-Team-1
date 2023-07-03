@@ -4,31 +4,34 @@
 @inject PasswordLogService _passLogService
 @using Microsoft.AspNetCore.Components.QuickGrid
 
-
 <div>
     <NavMenu _userAccount = "@userAccount"/>
 </div>
-<div class="h1">
-    <h1>TITLE/LOGO</h1>
-</div>
 
-<div class="grid">
-    <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
-    <QuickGrid Items="FilteredItems" >
-        <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
-        <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
-        <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" />
+<body style="background-color: #F5F5F4;">
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+        
+            <div class="grid">
+                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
+                <QuickGrid Items="FilteredItems" >
+                    <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
+                    <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
+                    <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" />
 
-        <TemplateColumn>
-            <a class="nav-link"  style = "cursor:pointer" @onclick="@(e =>addEditCredentials(context.PassID))">
-                <span class="oi oi-pencil" aria-hidden="true">Edit</span>
-            </a>
-            <a class="nav-link" style = "cursor:pointer" @onclick="@(e =>deletePassLog(context.PassID))">
-                <span class="oi oi-trash" aria-hidden="true">Delete</span>
-            </a>
-        </TemplateColumn>
-    </QuickGrid>
-</div>
+                    <TemplateColumn>
+                        <a class="nav-link"  style = "cursor:pointer" @onclick="@(e =>addEditCredentials(context.PassID))">
+                            <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                        </a>
+                        <a class="nav-link" style = "cursor:pointer" @onclick="@(e =>deletePassLog(context.PassID))">
+                            <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                        </a>
+                    </TemplateColumn>
+                </QuickGrid>
+            </div>
+        </div>
+    </section>
+</body>
 
 @if (displayAddEditComponent){
     <AddEditPass passID="@id" OnComplete="onEditComplete" userID="@userID"/>
