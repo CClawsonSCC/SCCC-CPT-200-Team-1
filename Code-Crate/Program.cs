@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using CodeCrateData;
 using Code_Crate.Data;
+using BlazorBootstrap;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,7 @@ builder.Services.AddScoped<UserAccountService>();
 builder.Services.AddSingleton<UserAccountDataCsv>();
 builder.Services.AddScoped<PasswordLogService>();
 builder.Services.AddSingleton<PasswordLogDataCsv>();
-
+builder.Services.AddBlazorBootstrap();
 
 
 var app = builder.Build();
