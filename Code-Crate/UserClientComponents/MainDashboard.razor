@@ -17,6 +17,14 @@
         <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
         <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" />
 
+        <TemplateColumn>
+            <a class="nav-link"  style = "cursor:pointer" @onclick="@(e =>addEditCredentials(context.PassID))">
+                <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+            </a>
+            <a class="nav-link" style = "cursor:pointer" @onclick="@(e =>deletePassLog(context.PassID))">
+                <span class="oi oi-trash" aria-hidden="true">Delete</span>
+            </a>
+        </TemplateColumn>
     </QuickGrid>
 </div>
 
@@ -56,6 +64,12 @@
     private async Task onEditComplete() {
         displayAddEditComponent = false;
         passLogs = await _passLogService.GetUserPasswords(userID);
+    }
+
+    private async Task deletePassLog(int id) {
+        await _passLogService.DeletePassLog(id);
+        await _passLogService.GetUserPasswords(userID);
+
     }
 
 }
