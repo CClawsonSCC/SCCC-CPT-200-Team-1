@@ -3,33 +3,36 @@
     height: 16.5rem;
     overflow-y: auto;
     margin: auto;
-    width: 85%;
+    width: 80%;
     padding: 10px;
 }
 
-section {
-    background-image: url('https://i.ibb.co/9g7ysyN/transparent-Back-Ground-Image.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 50%;
-    background-position: center;
-    
-  }
+/* This is the properties for the table elements text*/
+::deep .quickgrid[theme=corporate] {
+    color: black;
+}
 
+/* This is the properties for the column header text */
+::deep .quickgrid[theme=corporate] .col-title {
+    gap: 0.4rem; /* Separate the sort indicator from title text */
+    font-weight: bold;
+    color: #ffffff;
+}
 
-/* Sticky header while scrolling */
+/* This is the propteries for the table heading */
 ::deep thead {
     position: sticky;
     top: 0;
-    background-color: #eee;
-}
-::deep tr {
-    height: 30px;
-    border-left:0.5px solid silver;
-    border-bottom: 0.5px solid silver;
-    border-right: 0.5px solid silver;
+    background-color: #3f3d56;
+    outline: 1px solid gray;
+    z-index: 1;
 }
 
+/* This is the properties for the table elements */
+::deep tr {
+    height: 30px;
+    border-bottom: 0.5px solid #1266f1;
+}
 
 /* Subtle stripe effect */
 ::deep tr:nth-child(even) {
@@ -37,3 +40,13 @@ section {
     
 }
 ::deep table { min-width: 100%; }
+
+
+section {
+    background-image: url('https://i.ibb.co/kqqHtFM/code-Crate-Dashboard-Background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50%;
+    background-position: center;
+    
+  }
