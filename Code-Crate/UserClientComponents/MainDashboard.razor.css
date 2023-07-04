@@ -1,0 +1,62 @@
+/* Fix height and enable scrolling */
+.grid {
+    height: 16.5rem;
+    overflow-y: auto;
+    margin: auto;
+    width: 100%;
+}
+
+/* This is the properties for the table elements text*/
+::deep .quickgrid[theme=corporate] {
+    color: black;
+}
+
+/* This is the properties for the column header text */
+::deep .quickgrid[theme=corporate] .col-title {
+    gap: 0.4rem; /* Separate the sort indicator from title text */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* This is the propteries for the table heading */
+::deep thead {
+    position: sticky;
+    top: 0;
+    background-color: #3f3d56;
+    outline: 1px solid gray;
+    z-index: 1;
+}
+
+/* This is the properties for the table elements */
+::deep tr {
+    height: 30px;
+    border-bottom: 0.5px solid #1266f1;
+    
+}
+
+/* Subtle stripe effect */
+::deep tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.4);
+    
+}
+::deep table { min-width: 100%; }
+
+::deep tbody .password-log {
+    -webkit-text-security: disc;
+    width: 1rem;
+    
+}
+::deep tbody .username-log {
+    text-align: left;
+    
+}
+
+
+section {
+    background-image: url('https://i.ibb.co/kqqHtFM/code-Crate-Dashboard-Background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50%;
+    background-position: center;
+    
+  }
