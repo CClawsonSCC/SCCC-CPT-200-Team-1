@@ -46,9 +46,8 @@
                 </div>
 
                 <!-- Submit button -->
-                
-                <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" @onclick="checkUser" role="button">Sign in</button>
-                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/RegisterPage" role="button">Register</a>
+                <Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button>
+                <Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="RegisterBtn">Register</Button>
                 </EditForm>
             </div>
             </div>
@@ -74,6 +73,10 @@
             }
             
         }
+    }
+
+    private void RegisterBtn() {
+        NavManager.NavigateTo("/RegisterPage");
     }
     
 
