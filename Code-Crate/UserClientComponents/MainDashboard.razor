@@ -2,6 +2,7 @@
 @using CodeCrateData
 @inject UserAccountService _userAccountService
 @inject PasswordLogService _passLogService
+@inject IClipboardService ClipboardService
 @using Microsoft.AspNetCore.Components.QuickGrid
 
 <div>
@@ -17,8 +18,11 @@
                 <QuickGrid Items="FilteredItems" Theme="corporate">
                     <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
                     <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
-                    <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" />
-
+                    <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
+                    <TemplateColumn Align="Align.Left" >
+                        <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.Password))"><Icon Name="IconName.Clipboard" /></Button>
+                    </TemplateColumn>
+        
                     <TemplateColumn Align="Align.Right">
                         <Button Color="ButtonColor.Primary" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /> Edit </Button>
                         <Button Color="ButtonColor.Primary" Outline="true" @onclick="@(e =>deletePassLog(context.PassID))"><Icon Name="IconName.Trash" /> Delete </Button>
@@ -37,6 +41,7 @@
     [Parameter] public int userID { get; set; }
     bool displayAddEditComponent = false;
     private int id { get; set; }
+    public string TextToCopy { get; set; }
     protected UserAccount userAccount = new();
     protected PasswordLog passLog = new();
 
@@ -71,6 +76,11 @@
         await _passLogService.DeletePassLog(id);
         await _passLogService.GetUserPasswords(userID);
 
+    }
+
+    private async Task copyPasswordBtn(string passwordCopy)
+    {
+        await ClipboardService.CopyToClipboard(passwordCopy);
     }
 
 }

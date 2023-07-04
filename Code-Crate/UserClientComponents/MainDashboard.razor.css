@@ -32,6 +32,7 @@
 ::deep tr {
     height: 30px;
     border-bottom: 0.5px solid #1266f1;
+    
 }
 
 /* Subtle stripe effect */
@@ -40,6 +41,16 @@
     
 }
 ::deep table { min-width: 100%; }
+
+::deep tbody .password-log {
+    -webkit-text-security: disc;
+    width: 1rem;
+    
+}
+::deep tbody .username-log {
+    text-align: left;
+    
+}
 
 
 section {
