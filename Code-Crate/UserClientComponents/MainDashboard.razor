@@ -9,7 +9,7 @@
     <NavMenu _userAccount = "@userAccount"/>
 </div>
 
-<body style="background-color: #F5F5F4;">
+<body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
     <section class="vh-100">
         <div class="container py-5 h-100">
         
@@ -31,6 +31,7 @@
             </div>
         </div>
     </section>
+    <Footer />
 </body>
 
 @if (displayAddEditComponent){
@@ -41,7 +42,6 @@
     [Parameter] public int userID { get; set; }
     bool displayAddEditComponent = false;
     private int id { get; set; }
-    public string TextToCopy { get; set; }
     protected UserAccount userAccount = new();
     protected PasswordLog passLog = new();
 
