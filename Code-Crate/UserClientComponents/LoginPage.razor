@@ -78,8 +78,7 @@
             if (verifyAccount == true) {
                 var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
                 NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
-            }
-            
+            } 
         }
     }
 

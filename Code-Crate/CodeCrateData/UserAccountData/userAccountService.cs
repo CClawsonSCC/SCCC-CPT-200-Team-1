@@ -38,6 +38,7 @@ namespace CodeCrateData {
                     return await Task.FromResult(true);
                 }
             }
+            accountNum = 0;
             return await Task.FromResult(false);
         }
 
