@@ -3,7 +3,6 @@ namespace CodeCrateData {
     public class PasswordLogService {   
 
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
-        Dictionary<int, PasswordLog> userCredentials = new Dictionary<int, PasswordLog>(); // Current User Dictionary
         PasswordLogDataCsv _passLogCsv;
 
         public PasswordLogService(PasswordLogDataCsv passwordLogCsv) {
