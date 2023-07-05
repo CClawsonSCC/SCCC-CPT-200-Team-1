@@ -74,8 +74,9 @@
     }
     private async Task checkUser() {
         if (userAccount.Username != "" && userAccount.Password != "") {
-            var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
-            if (_userAccount.UserID != 0) {
+            var verifyAccount = await _userAccountService.VerifyUserAccount(userAccount);
+            if (verifyAccount == true) {
+                var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
                 NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
             }
             

@@ -3,10 +3,9 @@ namespace CodeCrateData {
     public class UserAccountService {   
 
         Dictionary<int, UserAccount> userAccountDict = new Dictionary<int, UserAccount>(); // Main Dictionary
-        int accountNum;
 
         UserAccountDataCsv _userAccountCsv;
-
+        int accountNum = 0;
         public UserAccountService(UserAccountDataCsv userAccountCsv) {
             _userAccountCsv = userAccountCsv;
         }
@@ -31,39 +30,24 @@ namespace CodeCrateData {
 
 
         public async Task<bool> VerifyUserAccount(UserAccount userAccount) {
-            var userAccountDictCopy = await GetUserAccounts();
             
-            foreach (var accounts in userAccountDictCopy.Values)
+            foreach (var accounts in userAccountDict.Values)
             {   
                 accountNum++;
                 if (accounts.Username == userAccount.Username && accounts.Password == userAccount.Password) {
                     return await Task.FromResult(true);
-                    
-                    
-
                 }
-                
             }
             return await Task.FromResult(false);
         }
-    
-        public async Task<UserAccount> GetCurrentAccount(UserAccount userAccount) {
-            
-            var test = await VerifyUserAccount(userAccount);
-            if ( test == true ){
-                return await Task.FromResult(userAccountDict[accountNum]);
 
+        public async Task<UserAccount> GetCurrentAccount(UserAccount userAccount) {
+                return await Task.FromResult(userAccountDict[accountNum]);
             }
-            userAccount.UserID = 0;
-            return await Task.FromResult(userAccount);
-            
-        }
 
         public Task<UserAccount> GetAccountData(int id) {   
             return Task.FromResult(userAccountDict[id]);
         }
-
-
 
     }
 }

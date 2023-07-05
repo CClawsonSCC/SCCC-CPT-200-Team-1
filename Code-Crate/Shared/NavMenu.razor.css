@@ -38,14 +38,13 @@
   }
   .greeting {
     font-size: 20px;
-    padding-left: 10px
+    padding-left: 10px;
     text-align: center;
   }
   
   /* NAVBAR MENU */
   .menu {
     display: flex;
-    
     font-size: 18px;
   }
   

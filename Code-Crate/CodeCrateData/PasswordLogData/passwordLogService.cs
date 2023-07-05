@@ -4,9 +4,6 @@ namespace CodeCrateData {
 
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
         Dictionary<int, PasswordLog> userCredentials = new Dictionary<int, PasswordLog>(); // Current User Dictionary
-
-
-        int incrementDictKeys = 0;
         PasswordLogDataCsv _passLogCsv;
 
         public PasswordLogService(PasswordLogDataCsv passwordLogCsv) {
@@ -18,6 +15,7 @@ namespace CodeCrateData {
         // Everytime this app is loaded-up a new instance of the dictionary is created, but if we immediately fill that dictionary up with values in the CSV file we will be good to go.
         public async Task<IEnumerable<PasswordLog>> GetUserPasswords(int userID) {
             passwordLogDict = (await _passLogCsv.LoadCollection()).ToDictionary(r => r.PassID, r => r);
+            /*
             userCredentials.Clear();
             foreach (var credential in passwordLogDict.Values) {
                 if (userID == credential.UserID)
@@ -27,6 +25,8 @@ namespace CodeCrateData {
                 }
             }
             return userCredentials.Values;
+            */
+            return passwordLogDict.Values.Where(x => x.UserID == userID); 
         }
 
         // Register a new user
