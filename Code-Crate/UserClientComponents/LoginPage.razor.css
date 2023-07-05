@@ -1,0 +1,33 @@
+li {
+    list-style: none;
+  }
+
+.divButton {
+    display: flex;
+}
+.divButton li {
+    padding-right: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    
+}
+
+div label {
+    color:white;
+}
+
+div h1 {
+    text-align:left; 
+    padding-bottom: 40px;
+    color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+div a:link {
+    color: white;
+}
+
+div a:visited {
+    color: white;
+}
