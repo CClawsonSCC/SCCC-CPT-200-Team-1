@@ -49,7 +49,7 @@
 {
     [Parameter] public int passID { get; set; } // This gets the ID from the parent, so this child componenet can use that ID.
     [Parameter] public int userID { get; set; }
-    [Parameter] public EventCallback<bool> OnComplete { get; set; } // This allows me to communicate with the parent component to refresh the table.
+    [Parameter] public EventCallback OnComplete { get; set; } // This allows me to communicate with the parent component to refresh the table.
 
     
     protected PasswordLog passLog = new();
@@ -80,7 +80,7 @@
 
     protected async Task CancelEvent()
     {   
-        await OnComplete.InvokeAsync(false);
+        await OnComplete.InvokeAsync();
     }
 
 }

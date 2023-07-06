@@ -74,17 +74,19 @@
 
 @code 
 {
-    [Parameter] public EventCallback<bool> OnComplete { get; set; }
+    [Parameter] public EventCallback OnComplete { get; set; }
+    [Parameter] public EventCallback displayMessage { get; set; }
     protected UserAccount userAccount = new();
 
     protected async Task RegisterAccount() {
         await _userAccountService.AddUserAccount(userAccount);
+        await displayMessage.InvokeAsync();
         await CancelEvent();
 
     }
     protected async Task CancelEvent()
     {   
-        await OnComplete.InvokeAsync(false);
+        await OnComplete.InvokeAsync();
     }
 
 
