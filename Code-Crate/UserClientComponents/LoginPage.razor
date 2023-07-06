@@ -52,10 +52,15 @@
                     <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button></li>
                     <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="RegisterBtn">Register</Button></li>
                 </div>
+                <div>
+                    @if (displayLoginErrorMsg) {
+                        <label style="color: red; padding-left:10px;padding-bottom:10px">The username or password is incorrect</label>
+                    }
+                </div>
                 </EditForm>
             </div>
             </div>
-        </div>
+       </div>
         <LoginFooter />
     </section>
 </body>
@@ -67,7 +72,7 @@
 @code {
 
     protected UserAccount userAccount = new();
-
+    protected bool displayLoginErrorMsg = false;
 
     protected override async Task OnInitializedAsync() { 
         await _userAccountService.GetUserAccounts();
@@ -78,8 +83,16 @@
             if (verifyAccount == true) {
                 var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
                 NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
-            } 
+            }
+            else {
+                displayLoginErrorMsg = true; 
+            }
+            
         }
+        else {
+            displayLoginErrorMsg = true;
+        }
+        
     }
 
     private void RegisterBtn() {
