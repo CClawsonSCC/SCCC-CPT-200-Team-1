@@ -31,3 +31,9 @@ div a:link {
 div a:visited {
     color: white;
 }
+
+#crateLogo {
+    float: right;
+    padding-top: 15px;
+    padding-right: 5px;
+}
