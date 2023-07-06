@@ -6,7 +6,7 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 
 <div>
-    <NavMenu _userAccount = "@userAccount"/>
+    <DashboardNavBar _userAccount = "@userAccount"/>
 </div>
 
 <body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
@@ -35,7 +35,7 @@
 </body>
 
 @if (displayAddEditComponent){
-    <AddEditPass passID="@id" OnComplete="onEditComplete" userID="@userID"/>
+    <Code_Crate.UserClientComponents.AddEditPass_Modal.AddEditPass passID="@id" OnComplete="onEditComplete" userID="@userID"/>
 }
 
 @code {
