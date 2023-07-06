@@ -6,83 +6,86 @@
 
 <PageTitle>Register</PageTitle>
 
-<body style="background-color: #F5F5F4;">
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-            <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                class="img-fluid" alt="Phone image">
+<div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10, 10, 10, 0.884); " aria-modal="true" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content" style = "width: 700px; height: 550px;">
+            <div class="modal-header">
+                <h4 class="modal-title">Register Account</h4>
+                <button class="btn btn-primary btn-md btn-block" style="background-color: #1266f1;" @onclick="CancelEvent">Close</button>
             </div>
             
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <h1 style="text-align:left; padding-bottom: 50px;">Register Account</h1>
-                <EditForm Model="@userAccount">
-                <DataAnnotationsValidator />
-                
-                <div class="form-outline mb-4">
-                    <ValidationMessage For="@(()=> userAccount.Username)" />
-                    <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Username"/>
-                    <label class="form-label" for="form1Example13">Username</label>
+                <div class="modal-body">
+                    <EditForm Model="@userAccount">
+                    <DataAnnotationsValidator />
                     
-                    
-                </div>
+                    <div class="form-outline mb-4">
+                        <ValidationMessage For="@(()=> userAccount.Username)" />
+                        <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Username"/>
+                        <label class="form-label" for="form1Example13">Username</label>
+                        
+                        
+                    </div>
 
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <ValidationMessage For="@(()=> userAccount.Password)" />
-                    <InputText type="password" class="form-control noWhite" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Password"/>
-                    <label class="form-label" for="form1Example23">Password</label>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <ValidationMessage For="@(()=> userAccount.Password)" />
+                        <InputText type="password" class="form-control noWhite" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Password"/>
+                        <label class="form-label" for="form1Example23">Password</label>
+                        
+                    </div>
+                    <div class="form-outline mb-4">
+                        <ValidationMessage For="@(()=> userAccount.ConfirmPassword)" />
+                        <InputText type="password" class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.ConfirmPassword"/>
+                        @if (userAccount.Password != userAccount.ConfirmPassword)
+                        {
+                            <label class="form-label" style="color:red;" for="form1Example23">Passwords do not much</label>
+                        }
+                        else {
+                            <label class="form-label" for="form1Example23">Confirm Password</label>
+                        }
                     
-                </div>
-                <div class="form-outline mb-4">
-                    <ValidationMessage For="@(()=> userAccount.ConfirmPassword)" />
-                    <InputText type="password" class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.ConfirmPassword"/>
-                    @if (userAccount.Password != userAccount.ConfirmPassword)
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <ValidationMessage For="@(()=> userAccount.Email)" />
+                        <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Email"/>
+                        <label class="form-label" for="form1Example23">Email</label>
+                        
+                    </div>
+
+                    <div class="divButtons">
+                    <!-- Submit button -->
+                    @if (userAccount.Password == "" && userAccount.ConfirmPassword == "" || userAccount.Password != userAccount.ConfirmPassword)
                     {
-                        <label class="form-label" style="color:red;" for="form1Example23">Passwords do not much</label>
+                        <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" disabled="true" href="/" @onclick="RegisterAccount" role="button">Register</button></li>
                     }
                     else {
-                        <label class="form-label" for="form1Example23">Confirm Password</label>
+                        <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" disabled="@(!context.Validate())" @onclick="RegisterAccount" role="button">Register</button></li>
+
                     }
-                
+                        <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" @onclick="CancelEvent">Cancel</button></li>
+                    </div>
+                    </EditForm>
                 </div>
-
-                <div class="form-outline mb-4">
-                    <ValidationMessage For="@(()=> userAccount.Email)" />
-                    <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Email"/>
-                    <label class="form-label" for="form1Example23">Email</label>
-                    
-                </div>
-
-                <!-- Submit button -->
-               @if (userAccount.Password == "" && userAccount.ConfirmPassword == "" || userAccount.Password != userAccount.ConfirmPassword)
-               {
-                    <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" disabled="true" href="/" @onclick="RegisterAccount" role="button">Register</button>
-               }
-               else {
-                <button class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" disabled="@(!context.Validate())" @onclick="RegisterAccount" role="button">Register</button>
-
-               }
-                <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Cancel</a>
-
-                </EditForm>
-            </div>
-            </div>
         </div>
-    </section>
-</body>
-<a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="/" role="button">Cancel</a>
+    </div>
+</div>
+
 
 
 @code 
 {
+    [Parameter] public EventCallback<bool> OnComplete { get; set; }
     protected UserAccount userAccount = new();
 
     protected async Task RegisterAccount() {
         await _userAccountService.AddUserAccount(userAccount);
-        NavManager.NavigateTo("/");
+        await CancelEvent();
 
+    }
+    protected async Task CancelEvent()
+    {   
+        await OnComplete.InvokeAsync(false);
     }
 
 

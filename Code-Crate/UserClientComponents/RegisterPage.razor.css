@@ -1,0 +1,39 @@
+.modal {
+    text-align: center;
+    padding: 0!important;
+    
+  }
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+li {
+    list-style: none;
+}
+
+.divButtons {
+    display: flex;
+}
+.divButtons li {
+    padding-right: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    
+}
+.modal-content {
+    background-color: #3f3d56;
+    border-style: solid; 
+    border-radius: 25px; 
+    border-color: #1266f1;
+    color: white;
+    border-width: 5px;
+}

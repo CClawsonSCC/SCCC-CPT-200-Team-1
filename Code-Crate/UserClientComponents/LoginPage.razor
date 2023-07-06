@@ -50,7 +50,7 @@
                 <!-- Submit button -->
                 <div class="divButton" style="padding-bottom: 10px;">
                     <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button></li>
-                    <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="RegisterBtn">Register</Button></li>
+                    <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="displayRegisterModal">Register</Button></li>
                 </div>
                 <div>
                     @if (displayLoginErrorMsg) {
@@ -64,7 +64,9 @@
         <LoginFooter />
     </section>
 </body>
-
+@if (displayRegisterComponent) {
+    <RegisterPage OnComplete="onRegisterComplete" />
+}
 
 
 
@@ -73,7 +75,7 @@
 
     protected UserAccount userAccount = new();
     protected bool displayLoginErrorMsg = false;
-
+    protected bool displayRegisterComponent = false;
     protected override async Task OnInitializedAsync() { 
         await _userAccountService.GetUserAccounts();
     }
@@ -97,6 +99,14 @@
 
     private void RegisterBtn() {
         NavManager.NavigateTo("/RegisterPage");
+    }
+
+    private void displayRegisterModal() {
+        displayRegisterComponent = true;
+    }
+
+    private void onRegisterComplete() {
+        displayRegisterComponent = false;
     }
     
 
