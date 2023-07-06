@@ -3,9 +3,8 @@ li {
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    
+    align-items: bottom;
     padding: 0px;
     background-color: #3f3d56;
     color: #fff;
@@ -13,19 +12,19 @@ li {
   }
 
 .logo {
-    font-size: 32px;
     padding-left: 10px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-  }
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
   
 .menu {
     display: flex;
     padding-right: 15px;
     padding-left: 10px;
     font-size: 18px;
-  }
+}
 .menu li {
+    padding-top: 10px;
     padding-right: 10px;
-
-  }
+    padding-bottom: 10px;
+}
