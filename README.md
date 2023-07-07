@@ -28,7 +28,7 @@ Written by Josh Close. Used in backend database management
 - Designed custom graphics for front end
 - Co-developed front end with Bailey Ducommun
 
-## Features
+## Planned Features
 - Two-factor authentication
 - Data encryption
 - Password generator
