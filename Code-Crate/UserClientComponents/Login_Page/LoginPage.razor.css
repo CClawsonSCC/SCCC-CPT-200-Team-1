@@ -3,10 +3,12 @@ li {
   }
 
 .divButton {
+    justify-content: right;
+    padding-right: 33px;
     display: flex;
 }
 .divButton li {
-    padding-right: 5px;
+
     padding-left: 10px;
     padding-bottom: 10px;
     
@@ -35,7 +37,7 @@ div a:visited {
 #crateLogo {
     float: right;
     padding-top: 15px;
-    padding-right: 5px;
+    padding-right: 40px;
 }
 
 .container-fluid {
