@@ -3,9 +3,10 @@ namespace CodeCrateData {
     public class PasswordLogService {   
 
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
-        PasswordLogDataCsv _passLogCsv;
+        CodeCrateDataCsv _passLogCsv;
+        String passLogCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
-        public PasswordLogService(PasswordLogDataCsv passwordLogCsv) {
+        public PasswordLogService(CodeCrateDataCsv passwordLogCsv) {
             _passLogCsv = passwordLogCsv;
         }
 
@@ -13,7 +14,7 @@ namespace CodeCrateData {
         // It loads up the current values in the CSV file and stores them in the dictionary.
         // Everytime this app is loaded-up a new instance of the dictionary is created, but if we immediately fill that dictionary up with values in the CSV file we will be good to go.
         public async Task<IEnumerable<PasswordLog>> GetUserPasswords(int userID) {
-            passwordLogDict = (await _passLogCsv.LoadCollection()).ToDictionary(r => r.PassID, r => r);
+            passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
             /*
             userCredentials.Clear();
             foreach (var credential in passwordLogDict.Values) {
@@ -34,7 +35,7 @@ namespace CodeCrateData {
             passLog.PassID = lastId + 1;
             passLog.UserID = userID;
             passwordLogDict.Add(passLog.PassID, passLog);
-            await _passLogCsv.WriteCollection(passwordLogDict.Values);
+            await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             
         }
 
@@ -44,14 +45,14 @@ namespace CodeCrateData {
 
         public async Task UpdatePassLog(PasswordLog passLog) {   
             passwordLogDict[passLog.PassID] = passLog;
-            await _passLogCsv.WriteCollection(passwordLogDict.Values);
+            await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             
         }
 
         public async Task DeletePassLog(int id) {
             passwordLogDict.Remove(id);
-            await _passLogCsv.WriteCollection(passwordLogDict.Values);
-            passwordLogDict = (await _passLogCsv.LoadCollection()).ToDictionary(r => r.PassID, r => r);
+            await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
+            passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
         }
     }
 }
