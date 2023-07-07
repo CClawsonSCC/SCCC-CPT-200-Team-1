@@ -3,6 +3,7 @@
 @inject UserAccountService _userAccountService
 @inject PasswordLogService _passLogService
 @inject IClipboardService ClipboardService
+@inject PassLogValidator _passLogValidator
 @using Microsoft.AspNetCore.Components.QuickGrid
 
 <div class="container-fluid">
@@ -31,7 +32,7 @@
                 
                             <TemplateColumn Align="Align.Right">
                                 <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /></Button>
-                                <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>deletePassLog(context.PassID))"><Icon Name="IconName.Trash" /></Button>
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>ModalBoxToMessageUserOpen(context.PassID))"><Icon Name="IconName.Trash" /></Button>
                             </TemplateColumn>
                             
                         </QuickGrid>
@@ -63,6 +64,9 @@
 @if (displayAddEditComponent){
     <Code_Crate.UserClientComponents.AddEditPass_Modal.AddEditPass passID="@id" OnComplete="onEditComplete" userID="@userID"/>
 }
+@if (ModalBoxToMessageUser) {
+    <ModalDialogBox Title ="Watch Out!" ListOfTextErrors = "@listOfErrorPrompts" OnClose = "@ModalBoxToMessageUserClose" DialogType="ModalDialogBox.ModalDialogType.DeleteCancel"></ModalDialogBox>
+}
 
 @code {
     [Parameter] public int userID { get; set; }
@@ -70,6 +74,8 @@
     private int id { get; set; }
     protected UserAccount userAccount = new();
     protected PasswordLog passLog = new();
+    protected List<String> listOfErrorPrompts = new List<String>();
+    public bool ModalBoxToMessageUser { get; set; }
 
     private string testTables = "testTables";
     
@@ -102,16 +108,28 @@
         passLogs = await _passLogService.GetUserPasswords(userID);
     }
 
-    private async Task deletePassLog(int id) {
-        await _passLogService.DeletePassLog(id);
+    private async Task ModalBoxToMessageUserClose(bool accepted) {
+        if (accepted) {
+            await _passLogService.DeletePassLog(id);
+            
+        }
+        ModalBoxToMessageUser = false;
         passLogs = await _passLogService.GetUserPasswords(userID);
-        
-
     }
 
     private async Task copyPasswordBtn(string passwordCopy)
     {
         await ClipboardService.CopyToClipboard(passwordCopy);
+    }
+
+    private async Task ModalBoxToMessageUserOpen(int passID) {
+        
+        var getCurrentPassID = await _passLogService.GetPassLogData(passID);
+        listOfErrorPrompts = _passLogValidator.ItemWarnings(getCurrentPassID, "DeleteWarning");
+        id = passID;
+        ModalBoxToMessageUser = true;
+       
+        StateHasChanged();
     }
 
 }

@@ -14,6 +14,7 @@ builder.Services.AddScoped<PasswordLogService>();
 builder.Services.AddSingleton<PasswordLogDataCsv>();
 builder.Services.AddBlazorBootstrap();
 builder.Services.AddScoped<IClipboardService, ClipboardService>();
+builder.Services.AddScoped<PassLogValidator>();
 
 
 var app = builder.Build();
