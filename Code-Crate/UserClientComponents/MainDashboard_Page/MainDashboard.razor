@@ -17,9 +17,11 @@
                     <div class="fade-in-text">
                         <h2 style="color: black;font-style: oblique">Welcome, @userAccount.Username!</h2>
                     </div>
+                    
                     <div class="grid">
                         <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
-                        <QuickGrid Items="FilteredItems" Theme="corporate">
+                        
+                        <QuickGrid Items="FilteredItems" Theme="corporate" Pagination="@pagination">
                             <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
                             <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
                             <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
@@ -31,11 +33,25 @@
                                 <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /></Button>
                                 <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>deletePassLog(context.PassID))"><Icon Name="IconName.Trash" /></Button>
                             </TemplateColumn>
+                            
                         </QuickGrid>
+                    </div>
+                    <div>
+                        <div class="testTables">
+                            Items per page:
+                            <select @bind="@pagination.ItemsPerPage">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>50</option>
+                            </select>
+                        </div>
+                        <Paginator Value="@pagination" />
                     </div>
                 </div>
             </section>
         </body>
+        
     </div>
     <MainFooter />
 </div>
@@ -50,6 +66,7 @@
     private int id { get; set; }
     protected UserAccount userAccount = new();
     protected PasswordLog passLog = new();
+    PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
 
     IEnumerable<PasswordLog> passLogs = Enumerable.Empty<PasswordLog>(); 
 
@@ -80,7 +97,8 @@
 
     private async Task deletePassLog(int id) {
         await _passLogService.DeletePassLog(id);
-        await _passLogService.GetUserPasswords(userID);
+        passLogs = await _passLogService.GetUserPasswords(userID);
+        
 
     }
 

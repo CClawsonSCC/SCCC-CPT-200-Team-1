@@ -50,6 +50,12 @@
     text-align: left;
     
 }
+.testTables {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-top: 15px;
+}
 
 section {
     background-image: url('https://i.ibb.co/kqqHtFM/code-Crate-Dashboard-Background.png');

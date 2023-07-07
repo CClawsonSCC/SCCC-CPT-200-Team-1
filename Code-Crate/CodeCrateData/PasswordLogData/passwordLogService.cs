@@ -51,6 +51,7 @@ namespace CodeCrateData {
         public async Task DeletePassLog(int id) {
             passwordLogDict.Remove(id);
             await _passLogCsv.WriteCollection(passwordLogDict.Values);
+            passwordLogDict = (await _passLogCsv.LoadCollection()).ToDictionary(r => r.PassID, r => r);
         }
     }
 }
