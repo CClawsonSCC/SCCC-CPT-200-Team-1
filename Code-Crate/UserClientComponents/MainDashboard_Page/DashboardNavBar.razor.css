@@ -109,7 +109,7 @@ input[type=checkbox] {
   @media (max-width: 768px) {
    .menu {
       display:none;
-      position: absolute;
+      position: relative;
       background-color:teal;
       right: 0;
       left: 0;
@@ -136,7 +136,7 @@ input[type=checkbox] {
     }
   
     .dropdown {
-      left: 50%;
+      left: 100%;
       top: 30px;
       transform: translateX(35%);
     }

@@ -5,34 +5,38 @@
 @inject IClipboardService ClipboardService
 @using Microsoft.AspNetCore.Components.QuickGrid
 
-<div>
-    <DashboardNavBar _userAccount = "@userAccount"/>
-</div>
-
-<body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-        
-            <div class="grid">
-                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
-                <QuickGrid Items="FilteredItems" Theme="corporate">
-                    <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
-                    <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
-                    <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
-                    <TemplateColumn Align="Align.Left" >
-                        <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.Password))"><Icon Name="IconName.Clipboard" /></Button>
-                    </TemplateColumn>
-        
-                    <TemplateColumn Align="Align.Right">
-                        <Button Color="ButtonColor.Primary" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /> Edit </Button>
-                        <Button Color="ButtonColor.Primary" Outline="true" @onclick="@(e =>deletePassLog(context.PassID))"><Icon Name="IconName.Trash" /> Delete </Button>
-                    </TemplateColumn>
-                </QuickGrid>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <DashboardNavBar _userAccount = "@userAccount"/>
         </div>
-    </section>
-    <Footer />
-</body>
+
+        <body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
+            <section class="vh-100">
+                <div class="container py-5 h-100">
+                
+                    <div class="grid">
+                        <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
+                        <QuickGrid Items="FilteredItems" Theme="corporate">
+                            <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
+                            <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
+                            <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
+                            <TemplateColumn Align="Align.Left" >
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.Password))"><Icon Name="IconName.Clipboard" /></Button>
+                            </TemplateColumn>
+                
+                            <TemplateColumn Align="Align.Right">
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /></Button>
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>deletePassLog(context.PassID))"><Icon Name="IconName.Trash" /></Button>
+                            </TemplateColumn>
+                        </QuickGrid>
+                    </div>
+                </div>
+            </section>
+            <Footer />
+        </body>
+    </div>
+</div>
 
 @if (displayAddEditComponent){
     <Code_Crate.UserClientComponents.AddEditPass_Modal.AddEditPass passID="@id" OnComplete="onEditComplete" userID="@userID"/>
