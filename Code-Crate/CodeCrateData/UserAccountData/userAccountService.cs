@@ -50,5 +50,17 @@ namespace CodeCrateData {
             return Task.FromResult(userAccountDict[id]);
         }
 
+        public async Task<bool> CheckAccountDuplicates(UserAccount userAccount) {
+            foreach (var accounts in userAccountDict.Values)
+            {   
+                if (accounts.Username == userAccount.Username || accounts.Email == userAccount.Email) {
+                    return await Task.FromResult(true);
+                }
+            }
+            return await Task.FromResult(false);
+
+
+        }
+
     }
 }

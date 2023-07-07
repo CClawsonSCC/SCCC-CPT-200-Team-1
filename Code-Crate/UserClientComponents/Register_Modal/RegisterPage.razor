@@ -63,6 +63,9 @@
 
                     }
                         <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" @onclick="CancelEvent">Cancel</button></li>
+                        @if (displayLoginErrorMsg) {
+                                <label style="color: red; padding-left:10px;padding-bottom:10px">The username or email has already been used!</label>
+                            }
                     </div>
                     </EditForm>
                 </div>
@@ -77,11 +80,20 @@
     [Parameter] public EventCallback OnComplete { get; set; }
     [Parameter] public EventCallback displayMessage { get; set; }
     protected UserAccount userAccount = new();
+    protected bool displayLoginErrorMsg = false;
 
     protected async Task RegisterAccount() {
-        await _userAccountService.AddUserAccount(userAccount);
-        await displayMessage.InvokeAsync();
-        await CancelEvent();
+        var test = await _userAccountService.CheckAccountDuplicates(userAccount);
+        if (test == true) {
+            displayLoginErrorMsg = true; 
+        }
+        else {
+            displayLoginErrorMsg = false;
+            await _userAccountService.AddUserAccount(userAccount);
+            await displayMessage.InvokeAsync();
+            await CancelEvent();
+        }
+        
 
     }
     protected async Task CancelEvent()

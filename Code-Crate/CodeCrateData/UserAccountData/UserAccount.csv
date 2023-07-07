@@ -1,13 +1,3 @@
 UserID,Username,Password,ConfirmPassword,Email
 1,testw,testw,testw,testw@gmail.com
-2,testing,testing,testing,testing@gmail.com
-3,gmail,gamil,gamil,gmail@gmail.com
-4,aaa,aaa,aaa,aaa@gmail.com
-5,hello,hello,hello,hello@gmail.com
-6,sdf,sdf,sdf,sdf@gmail.com
-7,asdfsddhgf,pass,pass,pass@gmail.com
-8,asd,asd,asd,asd@gmail.com
-9,asd,asd,asd,asd@gmail.com
-10,asd,asd,asd,asd@gmail.com
-11,asd,asd,asd,asd@gmail.com
-12,test,test,test,Test@gmail.com
+
