@@ -1,7 +1,7 @@
   
 .footer {
     bottom: 0px; 
-    position: absolute;
+    position: relative;
     width: 100%;
     background: #3f3d56;
     display: flex;
@@ -9,6 +9,7 @@
     align-items: center;
     border-top: 3px solid #1266f1;
     flex-direction: column;
+    
     
 }
 
