@@ -3,42 +3,45 @@
 @inject PasswordLogService _passLogService
 
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10,10,10,.8); " aria-modal="true" role="dialog" >
+            <div class="modal-dialog">
+                <div class="modal-content" style = "width:700px; height:615px;">
+                    <div class="modal-header">
+                        <h4 class="modal-title">@Title Credentials</h4>
+                        <button class="btn btn-dark" @onclick="CancelEvent">Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <EditForm Model="@passLog">
+                        
 
-<div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10,10,10,.8); " aria-modal="true" role="dialog" >
-    <div class="modal-dialog">
-        <div class="modal-content" style = "width:700px; height:615px;">
-            <div class="modal-header">
-                <h4 class="modal-title">@Title Credentials</h4>
-                <button class="btn btn-dark" @onclick="CancelEvent">Close</button>
-            </div>
-            <div class="modal-body">
-                <EditForm Model="@passLog">
-                
-
-                <div class="row">
-                    <div class="col-md-8" >
-                        <div class="form-group">
-                            <label for="Title" class="control-label" style = "line-height:40px;">Application::</label>
-                            <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Application" />
-                            
+                        <div class="row">
+                            <div class="col-md-8" >
+                                <div class="form-group">
+                                    <label for="Title" class="control-label" style = "line-height:40px;">Application::</label>
+                                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Application" />
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="Title" class="control-label" style = "line-height:40px;">Username:</label>
+                                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Username" />
+                                
+                                </div>
+                                <div class="form-group">
+                                    <label for="Title" class="control-label" style = "line-height:40px;">Password:</label>
+                                    <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Password" />
+                                
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary"  @onclick="SaveTask">Save</button> 
+                                    <button class="btn btn-light" @onclick="CancelEvent">Cancel</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="Title" class="control-label" style = "line-height:40px;">Username:</label>
-                            <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Username" />
-                           
-                        </div>
-                        <div class="form-group">
-                            <label for="Title" class="control-label" style = "line-height:40px;">Password:</label>
-                            <InputText class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Password" />
-                           
-                        </div>
-                        <div>
-                            <button class="btn btn-primary"  @onclick="SaveTask">Save</button> 
-                            <button class="btn btn-light" @onclick="CancelEvent">Cancel</button>
-                        </div>
+                        </EditForm>
                     </div>
                 </div>
-                </EditForm>
             </div>
         </div>
     </div>

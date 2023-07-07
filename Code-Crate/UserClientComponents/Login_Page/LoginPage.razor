@@ -9,64 +9,70 @@
 
 
 <Toasts class="p-3" Messages="messages" Delay="5000" Placement="ToastsPlacement.TopCenter" />
-<body style="background-color: #F5F5F4;">
+<div class="container-fluid">
+    <div class="row">
+        <body style="background-color: #F5F5F4;">
 
-    <LoginNavBar />
-    <section class="vh-100">
-        
-        <div class="container py-5 h-100">
-            <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                class="img-fluid" alt="Phone image">
-            </div>
-            
-            <div class="col-md-7 col-lg-5 offset-xl-1 " style="width: 495px; background-color: #3f3d56; border-style: solid; border-radius: 25px; border-color: #1266f1;">
-                <h1>Code Crate</h1>
-                <EditForm Model="@userAccount">
+            <LoginNavBar />
+            <section class="vh-100">
                 
-                  
-                    <div class="form-outline mb-4" style="padding-left:10px;">
-                        
-                        <InputText class="form-control" style = "width:450px;border:1px solid;" @bind-Value="userAccount.Username"/>
-                        <label class="form-label" for="form1Example13">Username</label>
+                <div class="container py-5 h-100">
+                    <div class="row d-flex align-items-center justify-content-center h-100">
+                    <div class="col-md-8 col-lg-7 col-xl-6">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                        class="img-fluid" alt="Phone image">
                     </div>
-
-                    <div class="form-outline mb-4" style="padding-left:10px;">
-                        
-                        <InputText type="password" class="form-control" style = "width:450px;border:1px solid;" @bind-Value="userAccount.Password"/>
-                        <label class="form-label" for="form1Example23">Password</label>
-                    </div>
-
-      
-
-                <div class="d-flex justify-content-around align-items-center mb-4">
-                    <!-- Checkbox -->
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                    <label class="form-check-label" for="form1Example3"> Remember me </label>
-                    </div>
-                    <a href="/">Forgot password?</a>
                     
-                </div>
+                    <div class="col-md-7 col-lg-5 offset-xl-1 " style="width: 495px; background-color: #3f3d56; border-style: solid; border-radius: 25px; border-color: #1266f1;">
+                        <img src="https://i.ibb.co/ZLQSVS4/Small-Crate.png" id="crateLogo" width="50px" height="53px">
+                        <h1>Login</h1>
+                        
+                        <EditForm Model="@userAccount">
+                        
+                        
+                            <div class="form-outline mb-4" style="padding-left:10px;padding-right:30px">
+                                
+                                <InputText class="form-control" style = "width: 100%;border:1px solid;" @bind-Value="userAccount.Username"/>
+                                <label class="form-label" for="form1Example13">Username</label>
+                            
 
-                <!-- Submit button -->
-                <div class="divButton" style="padding-bottom: 10px;">
-                    <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button></li>
-                    <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="displayRegisterModal">Register</Button></li>
+                            
+                                
+                                <InputText type="password" class="form-control" style = "width: 100%;border:1px solid;" @bind-Value="userAccount.Password"/>
+                                <label class="form-label" for="form1Example23">Password</label>
+                            </div>
+
+            
+
+                        <div class="d-flex justify-content-around align-items-center mb-4">
+                            <!-- Checkbox -->
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                            <label class="form-check-label" for="form1Example3"> Remember me </label>
+                            </div>
+                            <a href="/">Forgot password?</a>
+                            
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="divButton" style="padding-bottom: 10px;">
+                            <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button></li>
+                            <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="displayRegisterModal">Register</Button></li>
+                        </div>
+                        <div>
+                            @if (displayLoginErrorMsg) {
+                                <label style="color: red; padding-left:10px;padding-bottom:10px">The username or password is incorrect</label>
+                            }
+                        </div>
+                        </EditForm>
+                    </div>
+                    </div>
                 </div>
-                <div>
-                    @if (displayLoginErrorMsg) {
-                        <label style="color: red; padding-left:10px;padding-bottom:10px">The username or password is incorrect</label>
-                    }
-                </div>
-                </EditForm>
-            </div>
-            </div>
-       </div>
-        <LoginFooter />
-    </section>
-</body>
+                <LoginFooter />
+            </section>
+        </body>
+    </div>
+</div>
 @if (displayRegisterComponent) {
     <Code_Crate.UserClientComponents.Register_Modal.RegisterPage OnComplete="onRegisterComplete" displayMessage="displaySuccessMessage"/>
 }
