@@ -32,8 +32,26 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Title" class="control-label" style = "line-height:40px;">Password:</label>
-                                    <InputText type= "password" class="form-control" style = "width:670px;border:1px solid;" @bind-Value="passLog.Password" />
+                                    <div style="justify-content: center;width: 100%;display: flex">
+    
+                                        
+                                        <InputText type= "@togglePassword" class="form-control" style = "width:450px;border:1px solid;" @bind-Value="passLog.Password" />
+                                        <button class='e-icons e-input-eye' style="padding-left: 10px;" @onclick="ShowPassword">test</button> 
+                                    </div>
+                                    <div>
+                                        Select a password length:
+                                        <select @bind="@passLength">
+                                            <option>8</option>
+                                            <option>10</option>
+                                            <option>12</option>
+                                            <option>14</option>
+                                            <option>16</option>
+                                        </select>
+                                        <button class="btn btn-primary" @onclick="generatePassword">Generate</button>
+                                        
+                                    </div>
                                     <ValidationMessage For="@(()=> passLog.Password)" />
+                                    
                                 
                                 </div>
                                 <div>
@@ -45,7 +63,7 @@
                                     <button class="btn btn-primary"  disabled="@(!context.Validate())" @onclick="SaveTask">Save</button> 
                                 }
 
-                                    
+                
                                     <button class="btn btn-light" @onclick="CancelEvent">Cancel</button>
                                 </div>
                             </div>
@@ -64,8 +82,8 @@
     [Parameter] public int passID { get; set; } // This gets the ID from the parent, so this child componenet can use that ID.
     [Parameter] public int userID { get; set; }
     [Parameter] public EventCallback OnComplete { get; set; } // This allows me to communicate with the parent component to refresh the table.
-
-    
+    protected string togglePassword = "password";
+    protected int passLength = 8;
     protected PasswordLog passLog = new();
     protected string Title = "Add";
 
@@ -95,6 +113,21 @@
     protected async Task CancelEvent()
     {   
         await OnComplete.InvokeAsync();
+    }
+
+    protected void generatePassword() {
+        string newGenPass =  CodeCrateData.PasswordGenerator.GetRandomAlphanumericString(passLength);
+        passLog.Password =  newGenPass;
+    }
+
+    protected void ShowPassword() {
+        if (togglePassword == "password") {
+            togglePassword = "text";
+        }
+        else {
+            togglePassword = "password";
+        } 
+        
     }
 
 }

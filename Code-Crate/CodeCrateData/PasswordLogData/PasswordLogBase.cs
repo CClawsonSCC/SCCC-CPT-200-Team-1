@@ -20,8 +20,8 @@ namespace CodeCrateData {
 
         [Required(ErrorMessage = "Password must be required")]
         [RegularExpression(@"[^\s]+", ErrorMessage = "Password can't contain spaces!")]
-        [MaxLength(18)]
-        [MinLength(8)]
+        [MaxLength(18, ErrorMessage = "Maximum length is 18 characters")]
+        [MinLength(8, ErrorMessage = "Minimal length is 8 characters")]
         public string Password { get; set; } = "";
 
 
