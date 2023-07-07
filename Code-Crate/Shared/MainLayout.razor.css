@@ -4,11 +4,11 @@
     flex-direction: column;
     padding-left: 0 !important;
     padding-right: 0 !important;
-   
 }
 
 main {
     flex: 1;
+    overflow:hidden;
 }
 
 .sidebar {

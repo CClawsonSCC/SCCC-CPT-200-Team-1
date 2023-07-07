@@ -8,13 +8,15 @@
 <div class="container-fluid">
     <div class="row">
         <div>
-            <DashboardNavBar _userAccount = "@userAccount"/>
+            <DashboardNavBar />
         </div>
 
         <body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
             <section class="vh-100">
                 <div class="container py-5 h-100">
-                
+                    <div class="fade-in-text">
+                        <h2 style="color: black;font-style: oblique">Welcome, @userAccount.Username!</h2>
+                    </div>
                     <div class="grid">
                         <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
                         <QuickGrid Items="FilteredItems" Theme="corporate">
@@ -33,9 +35,9 @@
                     </div>
                 </div>
             </section>
-            <MainFooter />
         </body>
     </div>
+    <MainFooter />
 </div>
 
 @if (displayAddEditComponent){

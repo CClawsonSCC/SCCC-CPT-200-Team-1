@@ -19,28 +19,25 @@
 
 /* NAVBAR STYLING STARTS */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 0px;
     background-color: #3f3d56;
     color: #fff;
+    
   }
   
   .nav-links a {
     color: #fff;
   }
   
+.containerTest {
+  text-align: center;
+}
   /* LOGO */
-  .logo {
-    font-size: 32px;
-    padding-left: 10px
+#logo {
+    display: absolute;
+    margin: 0 auto;
   }
-  .greeting {
-    font-size: 20px;
-    padding-left: 10px;
-    text-align: center;
-  }
+
   
   /* NAVBAR MENU */
   .menu {

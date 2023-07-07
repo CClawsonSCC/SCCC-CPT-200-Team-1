@@ -1,5 +1,5 @@
 @page "/"
-@layout NoMenuLayout
+
 @inject NavigationManager NavManager
 @using CodeCrateData
 @inject UserAccountService _userAccountService
@@ -14,16 +14,20 @@
         <body style="background-color: #F5F5F4;">
 
             <LoginNavBar />
-            <section class="vh-100">
-                
-                <div class="container py-5 h-100">
-                    <div class="row d-flex align-items-center justify-content-center h-100">
+            <section>
+                <div class="fade-in-out-text">
+                    <h2 style="color: black; text-align:center;font-style: oblique">"Unlock Confidence, Safeguard Credentials with Code Crate!"</h2>
+                </div>
+                <div class="container py-5">
+                    <div class="row d-flex align-items-center justify-content-center">
                     <div class="col-md-8 col-lg-7 col-xl-6">
                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                         class="img-fluid" alt="Phone image">
                     </div>
                     
+                    
                     <div class="col-md-7 col-lg-5 offset-xl-1 " style="width: 495px; background-color: #3f3d56; border-style: solid; border-radius: 25px; border-color: #1266f1;">
+                        
                         <h1 style="text-align: center;">Login</h1>
                         
                         <EditForm Model="@userAccount">
@@ -69,10 +73,11 @@
                 </div>
                 
             </section>
-            <MainFooter />
         </body>
     </div>
+    <MainFooter />
 </div>
+
 @if (displayRegisterComponent) {
     <Code_Crate.UserClientComponents.Register_Modal.RegisterPage OnComplete="onRegisterComplete" displayMessage="displaySuccessMessage"/>
 }

@@ -60,3 +60,37 @@ div a:visited {
     margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
+.fade-in-out-text {
+    padding-top: 50px;
+    animation: fadeInOut 5s infinite alternate !important;
+    -webkit-animation: fadeInOut 5s infinite alternate !important;
+    -moz-animation: fadeInOut 5s infinite alternate !important;
+    -o-animation: fadeInOut 5s infinite alternate !important;
+    -ms-animation: fadeInOut 5s infinite alternate !important;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+    }
+
+@-webkit-keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-o-keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+

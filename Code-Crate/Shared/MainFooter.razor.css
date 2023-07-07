@@ -1,5 +1,6 @@
   
 .footer {
+    bottom: 0px; 
     position: absolute;
     width: 100%;
     background: #3f3d56;
@@ -8,6 +9,7 @@
     align-items: center;
     border-top: 3px solid #1266f1;
     flex-direction: column;
+    
 }
 
 .footer p {
@@ -33,3 +35,4 @@
   padding-right: 15px;
   padding-bottom: 10px;
 }
+

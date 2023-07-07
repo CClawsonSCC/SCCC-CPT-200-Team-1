@@ -1,14 +1,12 @@
 ﻿@using CodeCrateData
-@inject UserAccountService _userAccountService
 @inject NavigationManager NavManager
 
 <body>
   <nav class="navbar">
     <!-- LOGO -->
-    <div class="logo">
+    <div class="containerTest">
       <img src="https://i.ibb.co/vhSC8zq/sketch1688669106241.png" width="200px" height="40px" id=logo alt="Logo image" />
     </div>
-    <div class="greeting"> Welcome, @_userAccount.Username!</div>
     <!-- NAVIGATION MENU -->
     <ul class="nav-links">
 
@@ -29,8 +27,6 @@
 
 
 @code {
-    [Parameter] public UserAccount _userAccount { get; set; } = null!;
-    
 
     public void SignOutBtn() {
         NavManager.NavigateTo("/");
