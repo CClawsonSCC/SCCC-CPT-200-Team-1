@@ -1,6 +1,6 @@
 /* Fix height and enable scrolling */
 .grid {
-    height: 16.5rem;
+    height: 500px;
     overflow-y: auto;
     margin: auto;
     width: 100%;
@@ -33,6 +33,7 @@
     border-bottom: 0.5px solid #1266f1;
     
 }
+::deep tbody tr { height: 1.8rem; }
 
 /* Subtle stripe effect */
 ::deep tr:nth-child(even) {

@@ -12,16 +12,16 @@
         </div>
 
         <body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
-            <section class="vh-100">
-                <div class="container py-5 h-100">
+            <section>
+                <div class="container py-5">
                     <div class="fade-in-text">
                         <h2 style="color: black;font-style: oblique">Welcome, @userAccount.Username!</h2>
                     </div>
-                    
-                    <div class="grid">
+
+                    <div class="grid" >
                         <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
                         
-                        <QuickGrid Items="FilteredItems" Theme="corporate" Pagination="@pagination">
+                        <QuickGrid Items="FilteredItems" Theme="corporate" Pagination="@pagination" >
                             <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
                             <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
                             <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
@@ -36,24 +36,27 @@
                             
                         </QuickGrid>
                     </div>
-                    <div>
-                        <div class="testTables">
+                    
+                    <div class="@testTables">
                             Items per page:
                             <select @bind="@pagination.ItemsPerPage">
-                                <option>5</option>
                                 <option>10</option>
+                                <option>15</option>
                                 <option>20</option>
+                                <option>30</option>
                                 <option>50</option>
                             </select>
-                        </div>
-                        <Paginator Value="@pagination" />
                     </div>
+                    <Paginator Value="@pagination" />
+                        
+                        
+                   
                 </div>
             </section>
         </body>
         
     </div>
-    <MainFooter />
+   <MainFooter />
 </div>
 
 @if (displayAddEditComponent){
@@ -66,7 +69,10 @@
     private int id { get; set; }
     protected UserAccount userAccount = new();
     protected PasswordLog passLog = new();
-    PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
+
+    private string testTables = "testTables";
+    
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
 
     IEnumerable<PasswordLog> passLogs = Enumerable.Empty<PasswordLog>(); 
 
