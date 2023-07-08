@@ -7,9 +7,20 @@ li {
 .modal-content {
     width: auto;
     margin: 0;
+    background-color: #3f3d56;
+    color: white;
 }
 
 .modal-body {
     display: flex;
 }
 
+.testsss {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .testsss li {
+    float: left;
+    padding: 5px;
+  }

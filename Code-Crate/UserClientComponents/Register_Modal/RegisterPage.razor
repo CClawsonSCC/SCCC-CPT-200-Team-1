@@ -5,73 +5,81 @@
 
 <PageTitle>Register</PageTitle>
 
-<div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10, 10, 10, 0.884); " aria-modal="true" role="dialog" >
-    <div class="modal-dialog">
-        <div class="modal-content" style = "width: 700px; height: 550px;">
-            <div class="modal-header">
-                <h4 class="modal-title">Register Account</h4>
-                <button class="btn btn-primary btn-md btn-block" style="background-color: #1266f1;" @onclick="CancelEvent">Close</button>
-            </div>
-            
-                <div class="modal-body">
-                    <EditForm Model="@userAccount">
-                    <DataAnnotationsValidator />
-                    
-                    <div class="form-outline mb-4">
-                        <ValidationMessage For="@(()=> userAccount.Username)" />
-                        <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Username"/>
-                        <label class="form-label" for="form1Example13">Username</label>
-                        
-                        
+<div class="container-fluid">
+    <div class="row">
+        <div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10, 10, 10, 0.884); " aria-modal="true" role="dialog" >
+            <div class="modal-dialog">
+                <div class="modal-content" style = "width: 100%;">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Register Account</h4>
+                        <button class="btn btn-dark" @onclick="CancelEvent">Close</button>
                     </div>
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <ValidationMessage For="@(()=> userAccount.Password)" />
-                        <InputText type="password" class="form-control noWhite" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Password"/>
-                        <label class="form-label" for="form1Example23">Password</label>
-                        
-                    </div>
-                    <div class="form-outline mb-4">
-                        <ValidationMessage For="@(()=> userAccount.ConfirmPassword)" />
-                        <InputText type="password" class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.ConfirmPassword"/>
-                        @if (userAccount.Password != userAccount.ConfirmPassword)
-                        {
-                            <label class="form-label" style="color:red;" for="form1Example23">Passwords do not much</label>
-                        }
-                        else {
-                            <label class="form-label" for="form1Example23">Confirm Password</label>
-                        }
-                    
-                    </div>
+                        <div class="modal-body">
+                            <EditForm Model="@userAccount">
+                            <DataAnnotationsValidator />
+                            <div class="col-md-7 col-lg-5 offset-xl " style="width: 100%;" >
+                                <div class="form-group">
+                                    <ValidationMessage For="@(()=> userAccount.Username)" />
+                                    <InputText class="form-control" style = "width:100%;border:1px solid;" @bind-Value="userAccount.Username"/>
+                                    <label class="form-label" for="form1Example13">Username</label>
+                                    
+                                    
+                                </div>
 
-                    <div class="form-outline mb-4">
-                        <ValidationMessage For="@(()=> userAccount.Email)" />
-                        <InputText class="form-control" style = "width:500px;border:1px solid;" @bind-Value="userAccount.Email"/>
-                        <label class="form-label" for="form1Example23">Email</label>
-                        
-                    </div>
+                                <!-- Password input -->
+                                <div class="form-group">
+                                    <ValidationMessage For="@(()=> userAccount.Password)" />
+                                    <InputText type="password" class="form-control noWhite" style = "width:100%;border:1px solid;" @bind-Value="userAccount.Password"/>
+                                    <label class="form-label" for="form1Example23">Password</label>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <ValidationMessage For="@(()=> userAccount.ConfirmPassword)" />
+                                    <InputText type="password" class="form-control" style = "width:100%;border:1px solid;" @bind-Value="userAccount.ConfirmPassword"/>
+                                    @if (userAccount.Password != userAccount.ConfirmPassword)
+                                    {
+                                        <label class="form-label" style="color:red;" for="form1Example23">Passwords do not much</label>
+                                    }
+                                    else {
+                                        <label class="form-label" for="form1Example23">Confirm Password</label>
+                                    }
+                                
+                                </div>
 
-                    <div class="divButtons">
-                    <!-- Submit button -->
-                    @if (userAccount.Password == "" && userAccount.ConfirmPassword == "" || userAccount.Password != userAccount.ConfirmPassword)
-                    {
-                        <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" disabled="true" href="/" @onclick="RegisterAccount" role="button">Register</button></li>
-                    }
-                    else {
-                        <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" disabled="@(!context.Validate())" @onclick="RegisterAccount" role="button">Register</button></li>
+                                <div class="form-group">
+                                    <ValidationMessage For="@(()=> userAccount.Email)" />
+                                    <InputText class="form-control" style = "width:100%;border:1px solid;" @bind-Value="userAccount.Email"/>
+                                    <label class="form-label" for="form1Example23">Email</label>
+                                    
+                                </div>
 
-                    }
-                        <li><button class="btn btn-primary btn-lg btn-block" style="background-color: #1266f1;" @onclick="CancelEvent">Cancel</button></li>
-                        @if (displayLoginErrorMsg) {
-                                <label style="color: red; padding-left:10px;padding-bottom:10px">The username or email has already been used!</label>
-                            }
-                    </div>
-                    </EditForm>
+                                <div class="testsss">
+                                <!-- Submit button -->
+                                @if (userAccount.Password == "" && userAccount.ConfirmPassword == "" || userAccount.Password != userAccount.ConfirmPassword)
+                                {
+                                    <li><button class="btn btn-primary" style="background-color: #1266f1;" disabled="true" href="/" @onclick="RegisterAccount" role="button">Register</button></li>
+                                }
+                                else {
+                                    <li><button class="btn btn-primary" style="background-color: #1266f1;" disabled="@(!context.Validate())" @onclick="RegisterAccount" role="button">Register</button></li>
+
+                                }
+                                    <li><button class="btn btn-primary" style="background-color: #1266f1;" @onclick="CancelEvent">Cancel</button></li>
+                                    @if (displayLoginErrorMsg) {
+                                            <label style="color: red; padding-left:10px;padding-bottom:10px">The username or email has already been used!</label>
+                                        }
+                                </div>
+                            </div>
+                            </EditForm>
+                            
+                            
+                        </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 

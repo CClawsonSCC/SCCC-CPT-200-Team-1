@@ -60,52 +60,60 @@ div a:visited {
     margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
-.fade-in-out-text {
-    padding-top: 50px;
-    animation: fadeInOut 5s infinite alternate !important;
-    -webkit-animation: fadeInOut 5s infinite alternate !important;
-    -moz-animation: fadeInOut 5s infinite alternate !important;
-    -o-animation: fadeInOut 5s infinite alternate !important;
-    -ms-animation: fadeInOut 5s infinite alternate !important;
-}
-
-@keyframes fadeInOut {
+.fade-in-text {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    animation: fadeIn 8s !important;
+    -webkit-animation: fadeIn 8s !important;
+    -moz-animation: fadeIn 8s !important;
+    -o-animation: fadeIn 8s !important;
+    -ms-animation: fadeIn 8s !important;
+  }
+  
+  @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-@-moz-keyframes fadeInOut {
+  }
+  
+  @-moz-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
     }
-
-@-webkit-keyframes fadeInOut {
+  
+  @-webkit-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-@-o-keyframes fadeInOut {
+  }
+  
+  @-o-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-@-ms-keyframes fadeInOut {
+  }
+  
+  @-ms-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
+  }
 
-@media (max-width: 420px) {
+@media (max-width: 360px) {
     .divButton {
         justify-content: center;
         padding-right: 33px;
         display: flex;
     }
+    #mainImage {
+        display:none;
+    }
 
 }
 @media (max-width: 768px) {
-    .footer {
-      position: revert;
-    }
-        
+    #mainImage {
+        display:none;
+    }    
+  }
+  @media (max-width: 1024px) {
+    #mainImage {
+        display:none;
+    }    
   }
   
