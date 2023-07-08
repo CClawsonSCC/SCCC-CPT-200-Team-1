@@ -1,0 +1,44 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+@media (max-width: 640.98px) {
+    .top-row:not(.auth) {
+        display: none;
+    }
+
+    .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .top-row a, .top-row .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    /* This was the padding the was on the side of the page. */
+    .top-row, article {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}

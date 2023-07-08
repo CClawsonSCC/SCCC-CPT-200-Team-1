@@ -1,0 +1,135 @@
+@page "/MainDashboard/{userID:int}"
+@using CodeCrateData
+@inject UserAccountService _userAccountService
+@inject PasswordLogService _passLogService
+@inject IClipboardService ClipboardService
+@inject PassLogValidator _passLogValidator
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <DashboardNavBar />
+        </div>
+
+        <body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
+            <section>
+                <div class="container py-5">
+                    <div class="fade-in-text">
+                        <h2 style="color: black;font-style: oblique">Welcome, @userAccount.Username!</h2>
+                    </div>
+
+                    <div class="grid" >
+                        <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>addEditCredentials(0))"> + New</Button>
+                        
+                        <QuickGrid Items="FilteredItems" Theme="corporate" Pagination="@pagination" >
+                            <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
+                            <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
+                            <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
+                            <TemplateColumn Align="Align.Left" >
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.Password))"><Icon Name="IconName.Clipboard" /></Button>
+                            </TemplateColumn>
+                
+                            <TemplateColumn Align="Align.Right">
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /></Button>
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>ModalBoxToMessageUserOpen(context.PassID))"><Icon Name="IconName.Trash" /></Button>
+                            </TemplateColumn>
+                            
+                        </QuickGrid>
+                    </div>
+                    
+                    <div class="@testTables">
+                            Items per page:
+                            <select @bind="@pagination.ItemsPerPage">
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>50</option>
+                            </select>
+                    </div>
+                    <div style="border-top: 1px solid #3f3d56;">
+                        <Paginator Value="@pagination" />
+                    </div>    
+                        
+                   
+                </div>
+            </section>
+        </body>
+        
+    </div>
+   <MainFooter />
+</div>
+
+@if (displayAddEditComponent){
+    <Code_Crate.UserClientComponents.AddEditPass_Modal.AddEditPass passID="@id" OnComplete="onEditComplete" userID="@userID"/>
+}
+@if (ModalBoxToMessageUser) {
+    <ModalDialogBox Title ="Watch Out!" ListOfTextErrors = "@listOfErrorPrompts" OnClose = "@ModalBoxToMessageUserClose" DialogType="ModalDialogBox.ModalDialogType.DeleteCancel"></ModalDialogBox>
+}
+
+@code {
+    [Parameter] public int userID { get; set; }
+    bool displayAddEditComponent = false;
+    private int id { get; set; }
+    protected UserAccount userAccount = new();
+    protected PasswordLog passLog = new();
+    protected List<String> listOfErrorPrompts = new List<String>();
+    public bool ModalBoxToMessageUser { get; set; }
+
+    private string testTables = "testTables";
+    
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+
+    IEnumerable<PasswordLog> passLogs = Enumerable.Empty<PasswordLog>(); 
+
+    IQueryable<PasswordLog> FilteredItems
+    {
+        get
+        {
+            var result = passLogs.AsQueryable();
+            return result!;
+        }
+    } 
+
+
+    protected override async Task OnInitializedAsync() {   
+       userAccount = await _userAccountService.GetAccountData(userID);
+       passLogs = await _passLogService.GetUserPasswords(userID);
+    }
+    
+    private void addEditCredentials(int id) {
+        this.id = id;
+        displayAddEditComponent = true;
+    }
+
+    private async Task onEditComplete() {
+        displayAddEditComponent = false;
+        passLogs = await _passLogService.GetUserPasswords(userID);
+    }
+
+    private async Task ModalBoxToMessageUserClose(bool accepted) {
+        if (accepted) {
+            await _passLogService.DeletePassLog(id);
+            
+        }
+        ModalBoxToMessageUser = false;
+        passLogs = await _passLogService.GetUserPasswords(userID);
+    }
+
+    private async Task copyPasswordBtn(string passwordCopy)
+    {
+        await ClipboardService.CopyToClipboard(passwordCopy);
+    }
+
+    private async Task ModalBoxToMessageUserOpen(int passID) {
+        
+        var getCurrentPassID = await _passLogService.GetPassLogData(passID);
+        listOfErrorPrompts = _passLogValidator.ItemWarnings(getCurrentPassID, "DeleteWarning");
+        id = passID;
+        ModalBoxToMessageUser = true;
+       
+        StateHasChanged();
+    }
+
+}

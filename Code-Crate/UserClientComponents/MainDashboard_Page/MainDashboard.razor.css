@@ -1,0 +1,126 @@
+/* Fix height and enable scrolling */
+.grid {
+    height: 500px;
+    overflow-y: auto;
+    margin: auto;
+    width: 100%;
+}
+
+/* This is the properties for the table elements text*/
+::deep .quickgrid[theme=corporate] {
+    color: black;
+}
+
+/* This is the properties for the column header text */
+::deep .quickgrid[theme=corporate] .col-title {
+    gap: 0.4rem; /* Separate the sort indicator from title text */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* This is the propteries for the table heading */
+::deep thead {
+    position: sticky;
+    top: 0;
+    background-color: #3f3d56;
+    outline: 1px solid gray;
+    z-index: 1;
+}
+
+/* This is the properties for the table elements */
+::deep tr {
+    height: 30px;
+    border-bottom: 0.5px solid #1266f1;
+    
+}
+::deep tbody tr { height: 1.8rem; }
+
+/* Subtle stripe effect */
+::deep tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.4);
+    
+}
+::deep table { min-width: 100%; }
+
+::deep tbody .password-log {
+    -webkit-text-security: disc;
+    width: 1rem;
+    
+}
+::deep tbody .username-log {
+    text-align: left;
+    
+}
+.testTables {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-top: 15px;
+}
+
+section {
+    background-image: url('https://i.ibb.co/kqqHtFM/code-Crate-Dashboard-Background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50%;
+    background-position: center;
+    
+  }
+
+.container-fluid {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.container {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+.fade-in-text {
+    padding-bottom: 25px;
+    animation: fadeIn 8s !important;
+    -webkit-animation: fadeIn 8s !important;
+    -moz-animation: fadeIn 8s !important;
+    -o-animation: fadeIn 8s !important;
+    -ms-animation: fadeIn 8s !important;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+    }
+  
+  @-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
