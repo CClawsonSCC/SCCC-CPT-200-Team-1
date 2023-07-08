@@ -4,11 +4,16 @@ Code Crate is a fullstack, web-based password tracker created as a capstone proj
 
 ## Under The Hood
 The backend is written in C# and makes use of the following libraries:
-- [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) (Apache Licence 2.0)  
-A .NET API solution from Microsoft. Recomended by Bailey. 
-- [QuickGrid](https://aspnet.github.io/quickgridsamples/) (MIT Licence)  
+### [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+(Apache Licence 2.0)  
+A .NET API solution from Microsoft. Recomended by Bailey.
+
+### [QuickGrid](https://aspnet.github.io/quickgridsamples/)
+(MIT Licence)  
 Developed by Microsoft. Utilized in the Code Crate front end UI.
-- [CsvHelper](https://joshclose.github.io/CsvHelper/) (Apache Licence 2.0 & Microsoft Public Licence (MS-PL))  
+
+### [CsvHelper](https://joshclose.github.io/CsvHelper/)
+(Apache Licence 2.0 & Microsoft Public Licence (MS-PL))  
 Written by Josh Close. Used in backend database management
 
 ## Meet The Team
