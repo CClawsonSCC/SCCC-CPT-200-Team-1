@@ -94,3 +94,18 @@ div a:visited {
     100% { opacity: 1; }
 }
 
+@media (max-width: 420px) {
+    .divButton {
+        justify-content: center;
+        padding-right: 33px;
+        display: flex;
+    }
+
+}
+@media (max-width: 768px) {
+    .footer {
+      position: revert;
+    }
+        
+  }
+  

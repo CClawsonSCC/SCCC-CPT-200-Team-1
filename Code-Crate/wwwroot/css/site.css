@@ -4,7 +4,10 @@ html,body,#page, header {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
      
     position:relative;
+   
+        
 }
+
 
 h1:focus {
     outline: none;

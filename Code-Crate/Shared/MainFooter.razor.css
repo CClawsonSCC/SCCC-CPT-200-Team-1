@@ -1,7 +1,8 @@
   
 .footer {
-    bottom: 0px; 
-    position: relative;
+    left: 0;
+    bottom: 0;
+    position: fixed;
     width: 100%;
     background: #3f3d56;
     display: flex;
@@ -37,3 +38,16 @@
   padding-bottom: 10px;
 }
 
+@media (max-width: 420px) {
+  .footer {
+    position: revert;
+  }
+      
+}
+
+@media (max-width: 768px) {
+  .footer {
+    position: revert;
+  }
+      
+}
