@@ -14,6 +14,7 @@ builder.Services.AddSingleton<CodeCrateDataCsv>();
 builder.Services.AddBlazorBootstrap();
 builder.Services.AddScoped<IClipboardService, ClipboardService>();
 builder.Services.AddScoped<PassLogValidator>();
+builder.Services.AddScoped<ActiveLogService>();
 
 
 var app = builder.Build();

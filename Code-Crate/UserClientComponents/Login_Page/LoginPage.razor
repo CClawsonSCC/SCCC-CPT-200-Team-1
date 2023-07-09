@@ -4,6 +4,7 @@
 @using CodeCrateData
 @inject UserAccountService _userAccountService
 @inject ToastService _toastService
+@inject ActiveLogService _activeLogService
 
 
 <PageTitle>Login</PageTitle>
@@ -94,6 +95,7 @@
     protected bool displayRegisterComponent = false;
     protected override async Task OnInitializedAsync() {
         await _userAccountService.GetUserAccounts();
+        await _activeLogService.loadUpLogs();
     
     }
     private async Task checkUser() {
@@ -102,6 +104,7 @@
             if (verifyAccount == true) {
                 var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
                 NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
+                await _activeLogService.addLog(_userAccount, "User signed in");
             }
             else {
                 displayLoginErrorMsg = true; 

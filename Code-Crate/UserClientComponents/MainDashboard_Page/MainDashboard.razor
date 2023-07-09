@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="row">
         <div>
-            <DashboardNavBar />
+            <DashboardNavBar _userAccount="@userAccount"/>
         </div>
 
         <body style="background-color: #F5F5F4; padding: 0px; margin: 0px;">
@@ -96,6 +96,7 @@
 
     protected override async Task OnInitializedAsync() {   
         await _userAccountService.GetUserAccounts();
+        userAccount = await _userAccountService.GetAccountData(userID);
         passLogs = await _passLogService.GetUserPasswords(userID);
     }
     
