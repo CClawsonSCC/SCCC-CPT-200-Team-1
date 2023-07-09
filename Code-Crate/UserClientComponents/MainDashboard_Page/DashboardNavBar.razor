@@ -1,5 +1,6 @@
 ﻿@using CodeCrateData
 @inject NavigationManager NavManager
+@inject Microsoft.JSInterop.IJSRuntime jsInterop
 
 <body>
   <nav class="navbar">
@@ -20,6 +21,7 @@
         <li><Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="SignOutBtn">Options</Button></li>
         <li><Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="SignOutBtn">Sign Out</Button></li>
       </div>
+      
     </ul>
   </nav>
 </body>
@@ -29,7 +31,12 @@
 @code {
 
     public void SignOutBtn() {
+        testMethod();
         NavManager.NavigateTo("/");
+    }
+
+    public async void testMethod() {
+      await jsInterop.InvokeVoidAsync("signOut");
     }
 
 }

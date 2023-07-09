@@ -55,5 +55,11 @@
   .footer {
     position: relative;
   }
-      
 }
+@media (-webkit-min-device-pixel-ratio: 1.25) { 
+  .footer {
+    position: relative;
+  }
+ }
+      
+

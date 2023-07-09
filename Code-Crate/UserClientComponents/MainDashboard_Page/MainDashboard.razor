@@ -6,6 +6,7 @@
 @inject PassLogValidator _passLogValidator
 @using Microsoft.AspNetCore.Components.QuickGrid
 
+
 <div class="container-fluid">
     <div class="row">
         <div>
@@ -94,8 +95,8 @@
 
 
     protected override async Task OnInitializedAsync() {   
-       userAccount = await _userAccountService.GetAccountData(userID);
-       passLogs = await _passLogService.GetUserPasswords(userID);
+        await _userAccountService.GetUserAccounts();
+        passLogs = await _passLogService.GetUserPasswords(userID);
     }
     
     private void addEditCredentials(int id) {

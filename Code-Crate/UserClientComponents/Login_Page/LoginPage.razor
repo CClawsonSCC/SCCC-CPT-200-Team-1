@@ -5,6 +5,7 @@
 @inject UserAccountService _userAccountService
 @inject ToastService _toastService
 
+
 <PageTitle>Login</PageTitle>
 
  
@@ -91,8 +92,9 @@
     List<ToastMessage> messages = new List<ToastMessage>();
     protected bool displayLoginErrorMsg = false;
     protected bool displayRegisterComponent = false;
-    protected override async Task OnInitializedAsync() { 
+    protected override async Task OnInitializedAsync() {
         await _userAccountService.GetUserAccounts();
+    
     }
     private async Task checkUser() {
         if (userAccount.Username != "" && userAccount.Password != "") {
