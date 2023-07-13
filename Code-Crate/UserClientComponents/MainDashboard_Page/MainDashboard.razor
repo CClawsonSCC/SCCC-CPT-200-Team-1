@@ -4,6 +4,7 @@
 @inject PasswordLogService _passLogService
 @inject IClipboardService ClipboardService
 @inject PassLogValidator _passLogValidator
+@inject ActiveLogService _activeLogService
 @using Microsoft.AspNetCore.Components.QuickGrid
 
 
@@ -95,7 +96,7 @@
 
 
     protected override async Task OnInitializedAsync() {   
-        await _userAccountService.GetUserAccounts();
+        await _userAccountService.LoadUserAccounts();
         userAccount = await _userAccountService.GetAccountData(userID);
         passLogs = await _passLogService.GetUserPasswords(userID);
     }
@@ -112,7 +113,9 @@
 
     private async Task ModalBoxToMessageUserClose(bool accepted) {
         if (accepted) {
+            await _activeLogService.credentialLog(id, userID, 1);
             await _passLogService.DeletePassLog(id);
+            
             
         }
         ModalBoxToMessageUser = false;

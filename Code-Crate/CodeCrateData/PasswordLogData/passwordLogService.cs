@@ -4,10 +4,14 @@ namespace CodeCrateData {
 
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
         CodeCrateDataCsv _passLogCsv;
+        
+
         String passLogCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
         public PasswordLogService(CodeCrateDataCsv passwordLogCsv) {
             _passLogCsv = passwordLogCsv;
+            
+            
         }
 
         // This will keep the CSV from overriding on each time the home page is loaded up.
@@ -26,15 +30,19 @@ namespace CodeCrateData {
             }
             return userCredentials.Values;
             */
-            return passwordLogDict.Values.Where(x => x.UserID == userID); 
+            return passwordLogDict.Values.Where(x => x.UserID == userID);
+             
         }
 
         // Register a new user
-        public async Task AddUserPassword(PasswordLog passLog, int userID) {  
+        public async Task AddUserPassword(PasswordLog passLog, int userID) {
+        
             var lastId = passwordLogDict.Count() == 0 ? 0 : passwordLogDict.Keys.Max();
             passLog.PassID = lastId + 1;
             passLog.UserID = userID;
+            
             passwordLogDict.Add(passLog.PassID, passLog);
+            
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             
         }
@@ -43,9 +51,10 @@ namespace CodeCrateData {
             return Task.FromResult(passwordLogDict[id]);
         }
 
-        public async Task UpdatePassLog(PasswordLog passLog) {   
+        public async Task UpdatePassLog(PasswordLog passLog) { 
             passwordLogDict[passLog.PassID] = passLog;
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
+
             
         }
 

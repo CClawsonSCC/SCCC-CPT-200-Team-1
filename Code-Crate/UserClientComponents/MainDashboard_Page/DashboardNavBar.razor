@@ -34,7 +34,7 @@
     [Parameter] public UserAccount _userAccount { get; set; } = null!;
 
     public async void SignOutBtn() {
-        await _activeLogService.addLog(_userAccount, "User sign out");
+        await _activeLogService.accountLog(_userAccount, "User sign out");
         await jsInterop.InvokeVoidAsync("signOut");
         
     }

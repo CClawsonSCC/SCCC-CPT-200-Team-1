@@ -1,5 +1,4 @@
-CurrentDateTime,CurrentUserID,CurrentUsername,CurrentEventAction
-07/09/2023 02:29:42,1,testw,User signed in
-07/09/2023 02:29:55,1,testw,User sign out
-07/09/2023 02:30:09,2,Student,User signed in
-07/09/2023 02:30:17,2,Student,User sign out
+07/13/2023 12:26:17,User-ID: 1,Username: testw,User has successfully signed in!
+07/13/2023 12:26:19,User-ID: 1,Username: testw,"Deleted a credential: 9, Change, asda, 8a%EZ@0b"
+07/13/2023 12:26:21,User-ID: 1,Username: testw,"Deleted a credential: 7, asd, asda, y%H$C0px"
+07/13/2023 12:26:31,User-ID: 1,Username: testw,"Added a new credential: 1, asd, asda, p9uvAZME"

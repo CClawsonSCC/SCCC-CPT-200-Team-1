@@ -94,7 +94,7 @@
     protected bool displayLoginErrorMsg = false;
     protected bool displayRegisterComponent = false;
     protected override async Task OnInitializedAsync() {
-        await _userAccountService.GetUserAccounts();
+        await _userAccountService.LoadUserAccounts();
         await _activeLogService.loadUpLogs();
     
     }
@@ -104,9 +104,10 @@
             if (verifyAccount == true) {
                 var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
                 NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
-                await _activeLogService.addLog(_userAccount, "User signed in");
+                await _activeLogService.accountLog(_userAccount, "User has successfully signed in!");
             }
             else {
+                await _activeLogService.accountLog(userAccount, "User has failed to sign in!");
                 displayLoginErrorMsg = true; 
             }
             

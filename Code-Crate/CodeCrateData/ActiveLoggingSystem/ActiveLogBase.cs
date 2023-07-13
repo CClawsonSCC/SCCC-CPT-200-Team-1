@@ -1,15 +1,19 @@
 
 
+using CsvHelper.Configuration.Attributes;
+
 namespace CodeCrateData {
 
     public class ActiveLog {
 
+        // This index tag helps the CsvHelper determine where to put these values on the csv file.
+        [Index(0)]
         public DateTime? CurrentDateTime { get; set; } = null;
-
-        public int CurrentUserID { get; set; }
-
+        [Index(1)]
+        public string CurrentUserID { get; set; } = null!;
+        [Index(2)]
         public string CurrentUsername { get; set; } = null!;
-
+        [Index(3)]
         public string CurrentEventAction { get; set; } = null!;
 
     }
