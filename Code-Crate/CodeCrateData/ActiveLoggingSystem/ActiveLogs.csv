@@ -3,3 +3,41 @@
 07/13/2023 12:26:21,User-ID: 1,Username: testw,"Deleted a credential: 7, asd, asda, y%H$C0px"
 07/13/2023 12:26:31,User-ID: 1,Username: testw,"Added a new credential: 1, asd, asda, p9uvAZME"
 07/14/2023 13:23:11,User-ID: 1,Username: testw,User has successfully signed in!
+07/14/2023 13:32:11,User-ID: 3,Username: abc,New user account has been registered!
+07/14/2023 13:32:25,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:27:35,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:27:48,User-ID: 3,Username: abc,"Added a new credential: 1, somethign, something, "
+07/14/2023 14:28:11,User-ID: 3,Username: abc,User sign out
+07/14/2023 14:30:55,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:31:05,User-ID: 3,Username: abc,"Updated a credential: 1, somethign, something, password"
+07/14/2023 14:31:32,User-ID: 3,Username: abc,User sign out
+07/14/2023 14:31:38,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:34:06,User-ID: 3,Username: abc,"Added a new credential: 2, asdlfikujhk, sd;alkfgj, "
+07/14/2023 14:34:16,User-ID: 3,Username: abc,"Deleted a credential: 2, asdlfikujhk, sd;alkfgj, "
+07/14/2023 14:34:38,User-ID: 3,Username: abc,"Added a new credential: 2, abc, myname, "
+07/14/2023 14:35:20,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:35:25,User-ID: 3,Username: abc,"Deleted a credential: 2, abc, myname, "
+07/14/2023 14:35:38,User-ID: 3,Username: abc,"Added a new credential: 2, application, screenname, password"
+07/14/2023 14:40:18,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:40:22,User-ID: 3,Username: abc,"Deleted a credential: 2, application, screenname, password"
+07/14/2023 14:40:23,User-ID: 3,Username: abc,"Deleted a credential: 1, somethign, something, password"
+07/14/2023 14:40:34,User-ID: 3,Username: abc,"Added a new credential: 1, application, username, "
+07/14/2023 14:40:51,User-ID: 3,Username: abc,"Deleted a credential: 1, application, username, "
+07/14/2023 14:42:07,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:42:22,User-ID: 3,Username: abc,"Added a new credential: 1, account, account, "
+07/14/2023 14:43:07,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:43:10,User-ID: 3,Username: abc,"Deleted a credential: 1, account, account, "
+07/14/2023 14:43:21,User-ID: 3,Username: abc,"Added a new credential: 1, application, username, empty"
+07/14/2023 14:46:59,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:47:10,User-ID: 3,Username: abc,"Added a new credential: 2, sample, username, oatuzsoa"
+07/14/2023 14:49:25,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:49:28,User-ID: 3,Username: abc,"Deleted a credential: 2, sample, username, oatuzsoa"
+07/14/2023 14:49:30,User-ID: 3,Username: abc,"Deleted a credential: 1, application, username, empty"
+07/14/2023 14:49:46,User-ID: 3,Username: abc,"Added a new credential: 1, Application, Username, OatuzsOa"
+07/14/2023 14:50:34,User-ID: 3,Username: abc,"Added a new credential: 2, Password, Password, OatuzsOa"
+07/14/2023 14:50:54,User-ID: 3,Username: abc,"Added a new credential: 3, Username, Username, TsftqeTs"
+07/14/2023 14:51:11,User-ID: 3,Username: abc,"Added a new credential: 4, Application, Application, @pqnlg@pqnl"
+07/14/2023 14:52:00,User-ID: 3,Username: abc,"Added a new credential: 5, another, attempt, oatuzsoa"
+07/14/2023 14:52:18,User-ID: 3,Username: abc,"Added a new credential: 6, asdgfijuhkl, agsdfl;kjh, OatuzsOa"
+07/14/2023 14:53:01,User-ID: 3,Username: abc,User has successfully signed in!
+07/14/2023 14:53:17,User-ID: 3,Username: abc,"Added a new credential: 1, Application, Username, Oatuzsqd"

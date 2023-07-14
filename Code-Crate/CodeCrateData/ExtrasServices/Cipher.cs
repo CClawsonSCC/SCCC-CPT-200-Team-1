@@ -9,7 +9,7 @@ namespace CodeCrateData {
 
   public class Cipher
   {
-    private ArrayList _key = new ArrayList() { 8, 3, 2, 5, 2, 4 };
+    private ArrayList _key = new ArrayList() { 1, 2, 3, 4, 5, 6};
     private int _keySize = 6;
     
     /* -- Theory --
@@ -22,54 +22,41 @@ namespace CodeCrateData {
     */
     
     /// <summary>
-    /// Bitwise rotation to the left
+    /// Increments the values of the characters
     /// </summary>
     /// <param name="inString">a string of characters to be encoded.</param>
     /// <returns>an encrypted string</returns>
     public string Encrypt(string inString) {
-      // for each character in inString
+
       string outString = "";
       int i = 0;
-      foreach (char item in inString)
+
+      for (int j = 0; j < inString.Length; j++)
       {
-        // Step 1: convert <char> to <int>
-        int character = Convert.ToInt32(item);
-
-        // Step 2: Rotate bits
-        character = (character << _key.IndexOf(i)) | (character >> (32 - _key.IndexOf(i)));
-
-        // Step 3: convert back to <char> and insert to outString
-        outString.Append(Convert.ToChar(character));
-
-        // Step 4: if <i> is too large, set it to 0.
+        int digit = Convert.ToInt32(inString[j]);
+        digit += _key.IndexOf(i);
+        outString += (Convert.ToChar(digit));
         i = (i == _keySize - 1) ? 0 : i + 1;
-
       }
       return outString;
     } 
 
     /// <summary>
-    /// bitwise rotation to the right
+    /// Decrements the values of the characters
     /// </summary>
     /// <param name="inString">a string of characters to be decoded.</param>
     /// <returns>a decrypted string</returns>
     public string Decrypt(string inString) {
+
       string outString = "";
       int i = 0;
-      foreach (char item in inString)
+      
+      for (int j = 0; j < inString.Length; j++)
       {
-        // Step 1: convert <char> to <int>
-        int character = Convert.ToInt32(item);
-
-        // Step 2: Rotate bits
-        character = (character >> _key.IndexOf(i)) | (character << (32 - _key.IndexOf(i)));
-
-        // Step 3: convert back to <char> and insert to outString
-        outString.Append(Convert.ToChar(character));
-
-        // Step 4: if <i> is too large, set it to 0.
+        int digit = Convert.ToInt32(inString[j]);
+        digit -= _key.IndexOf(i);
+        outString += (Convert.ToChar(digit));
         i = (i == _keySize - 1) ? 0 : i + 1;
-
       }
       return outString;
     }
