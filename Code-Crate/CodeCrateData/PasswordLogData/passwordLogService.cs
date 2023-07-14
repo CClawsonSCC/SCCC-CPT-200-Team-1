@@ -5,11 +5,12 @@ namespace CodeCrateData {
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
         CodeCrateDataCsv _passLogCsv;
         
-
+        Cipher _cipher;
         String passLogCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
-        public PasswordLogService(CodeCrateDataCsv passwordLogCsv) {
+        public PasswordLogService(CodeCrateDataCsv passwordLogCsv, Cipher cipher) {
             _passLogCsv = passwordLogCsv;
+            _cipher = cipher;
             
             
         }
@@ -30,6 +31,7 @@ namespace CodeCrateData {
             }
             return userCredentials.Values;
             */
+            
             return passwordLogDict.Values.Where(x => x.UserID == userID);
              
         }
@@ -40,7 +42,8 @@ namespace CodeCrateData {
             var lastId = passwordLogDict.Count() == 0 ? 0 : passwordLogDict.Keys.Max();
             passLog.PassID = lastId + 1;
             passLog.UserID = userID;
-            
+            var testCipher = _cipher.Encrypt(passLog.Password);
+            passLog.Password = testCipher;
             passwordLogDict.Add(passLog.PassID, passLog);
             
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);

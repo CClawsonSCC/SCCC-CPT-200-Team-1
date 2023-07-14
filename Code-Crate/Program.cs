@@ -15,6 +15,8 @@ builder.Services.AddBlazorBootstrap();
 builder.Services.AddScoped<IClipboardService, ClipboardService>();
 builder.Services.AddScoped<PassLogValidator>();
 builder.Services.AddScoped<ActiveLogService>();
+builder.Services.AddScoped<Cipher>();
+
 
 
 var app = builder.Build();
