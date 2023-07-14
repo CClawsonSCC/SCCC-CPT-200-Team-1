@@ -5,12 +5,12 @@ namespace CodeCrateData {
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
         CodeCrateDataCsv _passLogCsv;
         
-
+        ActiveLogService _activeLog;
         String passLogCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
-        public PasswordLogService(CodeCrateDataCsv passwordLogCsv) {
+        public PasswordLogService(CodeCrateDataCsv passwordLogCsv, ActiveLogService activeLog) {
             _passLogCsv = passwordLogCsv;
-            
+            _activeLog = activeLog;
             
         }
 
@@ -42,24 +42,26 @@ namespace CodeCrateData {
             passLog.UserID = userID;
             
             passwordLogDict.Add(passLog.PassID, passLog);
-            
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
-            
+            await _activeLog.credentialLog(passLog.PassID, userID, 0);
         }
 
         public Task<PasswordLog> GetPassLogData(int id) {   
             return Task.FromResult(passwordLogDict[id]);
         }
 
-        public async Task UpdatePassLog(PasswordLog passLog) { 
+        public async Task UpdatePassLog(PasswordLog passLog, int userID) { 
             passwordLogDict[passLog.PassID] = passLog;
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
+            await _activeLog.credentialLog(passLog.PassID, userID, 3);
 
             
         }
 
-        public async Task DeletePassLog(int id) {
+        public async Task DeletePassLog(int id, int userID) {
             passwordLogDict.Remove(id);
+            await _activeLog.credentialLog(id, userID, 1);
+
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
         }

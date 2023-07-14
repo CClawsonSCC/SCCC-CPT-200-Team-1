@@ -113,10 +113,7 @@
 
     private async Task ModalBoxToMessageUserClose(bool accepted) {
         if (accepted) {
-            await _activeLogService.credentialLog(id, userID, 1);
-            await _passLogService.DeletePassLog(id);
-            
-            
+            await _passLogService.DeletePassLog(id, userID);
         }
         ModalBoxToMessageUser = false;
         passLogs = await _passLogService.GetUserPasswords(userID);
