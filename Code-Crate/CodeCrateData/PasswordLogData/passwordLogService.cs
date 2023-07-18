@@ -5,11 +5,13 @@ namespace CodeCrateData {
         Dictionary<int, PasswordLog> passwordLogDict = new Dictionary<int, PasswordLog>(); // Main Dictionary
         CodeCrateDataCsv _passLogCsv;
         
+        Cipher _cipher;
         ActiveLogService _activeLog;
         String passLogCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
-        public PasswordLogService(CodeCrateDataCsv passwordLogCsv, ActiveLogService activeLog) {
+        public PasswordLogService(CodeCrateDataCsv passwordLogCsv, Cipher cipher, ActiveLogService activeLog) {
             _passLogCsv = passwordLogCsv;
+            _cipher = cipher;
             _activeLog = activeLog;
             
         }
@@ -19,17 +21,7 @@ namespace CodeCrateData {
         // Everytime this app is loaded-up a new instance of the dictionary is created, but if we immediately fill that dictionary up with values in the CSV file we will be good to go.
         public async Task<IEnumerable<PasswordLog>> GetUserPasswords(int userID) {
             passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
-            /*
-            userCredentials.Clear();
-            foreach (var credential in passwordLogDict.Values) {
-                if (userID == credential.UserID)
-                {   
-                    incrementDictKeys++;
-                    userCredentials.Add(incrementDictKeys, credential);
-                }
-            }
-            return userCredentials.Values;
-            */
+            
             return passwordLogDict.Values.Where(x => x.UserID == userID);
              
         }
@@ -40,17 +32,25 @@ namespace CodeCrateData {
             var lastId = passwordLogDict.Count() == 0 ? 0 : passwordLogDict.Keys.Max();
             passLog.PassID = lastId + 1;
             passLog.UserID = userID;
-            
+            var testCipher = _cipher.Encrypt(passLog.Password);
+            passLog.Password = testCipher;
             passwordLogDict.Add(passLog.PassID, passLog);
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             await _activeLog.credentialLog(passLog.PassID, userID, 0);
         }
 
-        public Task<PasswordLog> GetPassLogData(int id) {   
+        public Task<PasswordLog> GetPassLogData(int id) {
+            var currentCredential = passwordLogDict[id];
+            var decryptCredentialPassword = _cipher.Decrypt(currentCredential.Password);
+            currentCredential.Password = decryptCredentialPassword;
+            passwordLogDict[id] = currentCredential;
             return Task.FromResult(passwordLogDict[id]);
         }
 
-        public async Task UpdatePassLog(PasswordLog passLog, int userID) { 
+        public async Task UpdatePassLog(PasswordLog passLog, int userID) {
+            var testCipher = _cipher.Encrypt(passLog.Password);
+            passLog.Password = testCipher;
+
             passwordLogDict[passLog.PassID] = passLog;
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             await _activeLog.credentialLog(passLog.PassID, userID, 3);

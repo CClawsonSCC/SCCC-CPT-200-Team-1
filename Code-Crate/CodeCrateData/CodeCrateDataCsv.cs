@@ -25,7 +25,8 @@ public class CodeCrateDataCsv
         {
             HasHeaderRecord = false, // Removes the headers on all csv files
         };
-        using (var writer = new StreamWriter(filePath))
+        //using (var writer = new StreamWriter(filePath)) // previous line
+        using (var writer = new StreamWriter(filePath, false, System.Text.Encoding.Unicode)) //cipher compatible line
         using (var csvWriter = new CsvWriter(writer, config))
         
         {

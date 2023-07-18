@@ -29,7 +29,7 @@
                             <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
                             <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
                             <TemplateColumn Align="Align.Left" >
-                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.Password))"><Icon Name="IconName.Clipboard" /></Button>
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.PassID))"><Icon Name="IconName.Clipboard" /></Button>
                             </TemplateColumn>
                 
                             <TemplateColumn Align="Align.Right">
@@ -119,9 +119,10 @@
         passLogs = await _passLogService.GetUserPasswords(userID);
     }
 
-    private async Task copyPasswordBtn(string passwordCopy)
-    {
-        await ClipboardService.CopyToClipboard(passwordCopy);
+    private async Task copyPasswordBtn(int passID)
+    {   
+        var currentCredential = await _passLogService.GetPassLogData(passID);
+        await ClipboardService.CopyToClipboard(currentCredential.Password);
     }
 
     private async Task ModalBoxToMessageUserOpen(int passID) {
