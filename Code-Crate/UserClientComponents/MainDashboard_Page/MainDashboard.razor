@@ -115,6 +115,7 @@
         if (accepted) {
             await _credentialLogService.DeleteCredential(id, userID);
         }
+        await Task.Delay(1500);
         ModalBoxToMessageUser = false;
         credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
