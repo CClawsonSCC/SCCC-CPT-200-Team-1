@@ -48,10 +48,7 @@ namespace CodeCrateData {
         }
 
         public async Task UpdatePassLog(PasswordLog passLog, int userID) {
-            var testCipher = _cipher.Encrypt(passLog.Password);
-            passLog.Password = testCipher;
-
-            passwordLogDict[passLog.PassID] = passLog;
+            await encryptCredential(passLog);
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             await _activeLog.credentialLog(passLog.PassID, userID, 3);
 
@@ -65,5 +62,15 @@ namespace CodeCrateData {
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
         }
+
+        public async Task encryptCredential(PasswordLog passLog) {
+            var testCipher = _cipher.Encrypt(passLog.Password);
+            passLog.Password = testCipher;
+
+            passwordLogDict[passLog.PassID] = passLog;
+            await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
+
+        }
+
     }
 }
