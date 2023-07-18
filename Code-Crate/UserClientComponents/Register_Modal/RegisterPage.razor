@@ -2,6 +2,7 @@
 @using CodeCrateData
 @inject UserAccountService _userAccountService
 @inject NavigationManager NavManager
+@inject ActiveLogService _activeLogService
 
 <PageTitle>Register</PageTitle>
 
@@ -98,6 +99,7 @@
         else {
             displayLoginErrorMsg = false;
             await _userAccountService.AddUserAccount(userAccount);
+            await _activeLogService.accountLog(userAccount, "New user account has been registered!");
             await displayMessage.InvokeAsync();
             await CancelEvent();
         }

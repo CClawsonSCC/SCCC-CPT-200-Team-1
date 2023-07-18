@@ -400,3 +400,5 @@ FodyWeavers.xsd
 #Extras
 bin/
 obj/
+Code-Crate/.vscode/launch.json
+Code-Crate/.vscode/tasks.json

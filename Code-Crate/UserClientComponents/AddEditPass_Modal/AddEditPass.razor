@@ -1,6 +1,7 @@
 @using CodeCrateData
 @inject UserAccountService _userAccountService
 @inject PasswordLogService _passLogService
+@inject ActiveLogService _activeLogService
 
 
 <div class="container-fluid">
@@ -101,9 +102,13 @@
         
         if (passID != 0) {
             await _passLogService.UpdatePassLog(passLog);
+            await _activeLogService.credentialLog(passLog.PassID, userID, 2);
+            
+            
         }
         else {
             await _passLogService.AddUserPassword(passLog, userID);
+            await _activeLogService.credentialLog(passLog.PassID, userID, 0);
                 
         }
         await CancelEvent();
