@@ -26,11 +26,15 @@
                         
                         <QuickGrid Items="FilteredItems" Theme="corporate" Pagination="@pagination" >
                             <PropertyColumn Property="f => f.Application" Title="Application" Sortable="true" />
-                            <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true" />
-                            <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
-                            <TemplateColumn Align="Align.Left" >
-                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyPasswordBtn(context.PassID))"><Icon Name="IconName.Clipboard" /></Button>
+                            <TemplateColumn Align="Align.Right" >
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyBtn(context.PassID, 0))"><Icon Name="IconName.Clipboard" /></Button>
                             </TemplateColumn>
+                            <PropertyColumn Property="f => f.Username" Title="Username" Sortable="true"/>
+                            <TemplateColumn Align="Align.Right" >
+                                <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@(e =>copyBtn(context.PassID, 1))"><Icon Name="IconName.Clipboard" /></Button>
+                            </TemplateColumn>
+                            <PropertyColumn Property="f => f.Password" Title="Password" Sortable="true" Class="password-log" />
+                            
                 
                             <TemplateColumn Align="Align.Right">
                                 <Button Color="ButtonColor.Primary" Size="Size.Small" Outline="true" @onclick="@(e =>addEditCredentials(context.PassID))"><Icon Name="IconName.Pencil" /></Button>
@@ -94,39 +98,53 @@
         }
     } 
 
-
+    // When the page loads it will do the following service calls to get the data needed.
     protected override async Task OnInitializedAsync() {   
         await _userAccountService.LoadUserAccounts();
         userAccount = await _userAccountService.GetAccountData(userID);
         credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
     
+    // This will open the addEdit Component
     private void addEditCredentials(int id) {
         this.id = id;
         displayAddEditComponent = true;
     }
 
+    // This will close the addEdit Component and refresh the table
     private async Task onEditComplete() {
         displayAddEditComponent = false;
         credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
 
+    // This is when the delete modal box cancel or delete button is pressed
+    // If the delete button is pressed, then it is accepted and will delete the credential
     private async Task ModalBoxToMessageUserClose(bool accepted) {
         if (accepted) {
+            await Task.Delay(1500);
             await _credentialLogService.DeleteCredential(id, userID);
         }
-        await Task.Delay(1500);
+        
         ModalBoxToMessageUser = false;
         credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
 
-    private async Task copyPasswordBtn(int passID)
+    // This will copy the username or password
+    private async Task copyBtn(int passID, int typeOfCopy)
     {   
         var currentCredential = await _credentialLogService.GetCurrentCredentialData(passID);
-        await ClipboardService.CopyToClipboard(currentCredential.Password);
+        
+        if (typeOfCopy == 0) {
+            await ClipboardService.CopyToClipboard(currentCredential.Username);
+        }
+        else {
+            await ClipboardService.CopyToClipboard(currentCredential.Password);
+        }
+
         await _credentialLogService.encryptCredential(currentCredential);
     }
 
+    //This will display the delete warning box when the button delete is pressed.
     private async Task ModalBoxToMessageUserOpen(int passID) {
         
         var getCurrentPassID = await _credentialLogService.GetCurrentCredentialData(passID);
