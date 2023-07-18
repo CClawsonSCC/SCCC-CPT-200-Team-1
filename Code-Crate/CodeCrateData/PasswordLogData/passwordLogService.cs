@@ -50,11 +50,17 @@ namespace CodeCrateData {
             
         }
 
-        public Task<PasswordLog> GetPassLogData(int id) {   
+        public Task<PasswordLog> GetPassLogData(int id) {
+            var currentCredential = passwordLogDict[id];
+            var decryptCredentialPassword = _cipher.Decrypt(currentCredential.Password);
+            currentCredential.Password = decryptCredentialPassword;
+            passwordLogDict[id] = currentCredential;
             return Task.FromResult(passwordLogDict[id]);
         }
 
-        public async Task UpdatePassLog(PasswordLog passLog) { 
+        public async Task UpdatePassLog(PasswordLog passLog) {
+            var testCipher = _cipher.Encrypt(passLog.Password);
+            passLog.Password = testCipher;
             passwordLogDict[passLog.PassID] = passLog;
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
 
