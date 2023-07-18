@@ -24,7 +24,7 @@
                         break;
                     case ModalDialogType.DeleteCancel:
                         <button type="button" class="btn" @onclick="@ModalCancel">Cancel</button>
-                        <button type="button" class="btn btn-danger" @onclick=@ModalOk>Delete</button>
+                        <Button @ref="saveButton" Color="ButtonColor.Danger" @onclick="async () => await ModalOk()">Delete</Button>
                         break;
                 }
             </div>
@@ -44,15 +44,21 @@
 
     [Parameter]
     public ModalDialogType DialogType { get; set; }
+    private Button saveButton = new Button();
 
     private Task ModalCancel()
     {
         return OnClose.InvokeAsync(false);
     }
 
-    private Task ModalOk()
+    private async Task ModalOk()
     {
-        return OnClose.InvokeAsync(true);
+        
+        saveButton?.ShowLoading("Deleting credential...");
+
+        await Task.Delay(1000); // API call
+
+        await OnClose.InvokeAsync(true);
     }
 
     public enum ModalDialogType

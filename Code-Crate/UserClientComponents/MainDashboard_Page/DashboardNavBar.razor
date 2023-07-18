@@ -20,7 +20,15 @@
       <div class="menu">
 
         <li><Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="SignOutBtn">Options</Button></li>
-        <li><Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="SignOutBtn">Sign Out</Button></li>
+        
+        @if(showLoadingButton) {
+            <li><Button Color="ButtonColor.Primary" Size="Size.Small" Loading="true" LoadingText="Signing Out..." /></li>
+        }
+        else {
+          <li><Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="SignOutBtn">Sign Out</Button></li>
+
+        }
+
       </div>
       
     </ul>
@@ -33,7 +41,11 @@
 
     [Parameter] public UserAccount _userAccount { get; set; } = null!;
 
+    protected bool showLoadingButton = false;
+
     public async void SignOutBtn() {
+        showLoadingButton = true;
+        await Task.Delay(1000);
         await _activeLogService.accountLog(_userAccount, "User sign out");
         await jsInterop.InvokeVoidAsync("signOut");
         

@@ -56,13 +56,19 @@
                                 
                                 </div>
                                 <div class="testsss">
-                                @if (credLog.Application == "" || credLog.Username == "" || credLog.Password == "") {
-
-                                    <li><button class="btn btn-primary"  disabled= "true" @onclick="SaveTask">Save</button></li>
+                                @if(showLoadingButton) {
+                                    <li><Button Color="ButtonColor.Primary" Loading="true" LoadingText="Saving..." /></li>
                                 }
                                 else {
-                                    <li><button class="btn btn-primary"  disabled="@(!context.Validate())" @onclick="SaveTask">Save</button></li>
+                                    @if (credLog.Application == "" || credLog.Username == "" || credLog.Password == "") {
+                                        <li><button class="btn btn-primary"  disabled= "true" @onclick="SaveTask">Save</button></li>
+                                    }
+                                    else {
+                                        <li><button class="btn btn-primary"  disabled="@(!context.Validate())" @onclick="SaveTask">Save</button></li>
+                                    }
                                 }
+
+                                
                                 
                                     <li><button class="btn btn-light" @onclick="CancelEvent">Cancel</button></li>
                                 </div>
@@ -87,6 +93,7 @@
     protected int passLength = 8;
     protected CredentialLog credLog = new();
     protected string Title = "Add";
+    protected bool showLoadingButton = false;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -100,12 +107,15 @@
 
     protected async Task SaveTask() { 
         
+        showLoadingButton = true;
+
         if (passID != 0) {
             await _credentialLogService.UpdateCredential(credLog, userID);
         }
         else {
             await _credentialLogService.AddCredential(credLog, userID);    
         }
+        await Task.Delay(1200);
         await CancelEvent();
     }
 

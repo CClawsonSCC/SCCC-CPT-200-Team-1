@@ -10,7 +10,7 @@
 <PageTitle>Login</PageTitle>
 
  
-<Toasts class="p-3" Messages="messages" Delay="5000" Placement="ToastsPlacement.TopCenter" />
+<Toasts class="p-3" Messages="messages" Delay="2150" Placement="ToastsPlacement.TopCenter" />
 <div class="container-fluid">
     <div class="row">
         <body style="background-color: #F5F5F4;">
@@ -61,7 +61,12 @@
 
                         <!-- Submit button -->
                         <div class="divButton" style="padding-bottom: 10px;">
-                            <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button></li>
+                            @if(showLoadingButton) {
+                                    <li><Button Color="ButtonColor.Primary" Size="Size.Large" Loading="true" LoadingText="Loading..." /></li>
+                            }
+                            else {
+                                <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="checkUser">Sign In</Button></li>
+                            }
                             <li><Button Color="ButtonColor.Primary" Size="Size.Large" @onclick="displayRegisterModal">Register</Button></li>
                         </div>
                         <div>
@@ -93,6 +98,7 @@
     List<ToastMessage> messages = new List<ToastMessage>();
     protected bool displayLoginErrorMsg = false;
     protected bool displayRegisterComponent = false;
+    protected bool showLoadingButton = false;
     protected override async Task OnInitializedAsync() {
         await _userAccountService.LoadUserAccounts();
         await _activeLogService.loadUpLogs();
@@ -103,6 +109,8 @@
             var verifyAccount = await _userAccountService.VerifyUserAccount(userAccount);
             if (verifyAccount == true) {
                 var _userAccount = await _userAccountService.GetCurrentAccount(userAccount);
+                showLoadingButton = true;
+                await Task.Delay(1200);
                 NavManager.NavigateTo($"/MainDashboard/{_userAccount.UserID}");
                 await _activeLogService.accountLog(_userAccount, "User has successfully signed in!");
             }
