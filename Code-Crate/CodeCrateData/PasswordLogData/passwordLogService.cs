@@ -20,17 +20,6 @@ namespace CodeCrateData {
         // Everytime this app is loaded-up a new instance of the dictionary is created, but if we immediately fill that dictionary up with values in the CSV file we will be good to go.
         public async Task<IEnumerable<PasswordLog>> GetUserPasswords(int userID) {
             passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
-            /*
-            userCredentials.Clear();
-            foreach (var credential in passwordLogDict.Values) {
-                if (userID == credential.UserID)
-                {   
-                    incrementDictKeys++;
-                    userCredentials.Add(incrementDictKeys, credential);
-                }
-            }
-            return userCredentials.Values;
-            */
             
             return passwordLogDict.Values.Where(x => x.UserID == userID);
              

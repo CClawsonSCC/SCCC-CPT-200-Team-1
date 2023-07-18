@@ -125,8 +125,7 @@
     private async Task copyPasswordBtn(int passID)
     {   
         var currentCredential = await _passLogService.GetPassLogData(passID);
-        string getPassword = currentCredential.Password;
-        await ClipboardService.CopyToClipboard(getPassword);
+        await ClipboardService.CopyToClipboard(currentCredential.Password);
     }
 
     private async Task ModalBoxToMessageUserOpen(int passID) {
