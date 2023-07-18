@@ -3,19 +3,11 @@ using System.Linq;
 
 namespace CodeCrateData {
 
-    public class PassLogValidator {
+    public class CredentialLogMessenger {
 
         List<string> messagePrompts = null!;
-        
-        private PasswordLogService _passLogService;
 
-        public PassLogValidator(PasswordLogService passLogServce)
-        {
-            _passLogService = passLogServce;
-            
-        }
-
-        public List<string> ItemWarnings(PasswordLog passLog, string switchCase) {
+        public List<string> ItemWarnings(string switchCase) {
             messagePrompts = new List<string>();
 
             switch (switchCase) {

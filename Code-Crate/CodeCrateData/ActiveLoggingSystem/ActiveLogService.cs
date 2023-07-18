@@ -5,11 +5,11 @@ namespace CodeCrateData {
     public class ActiveLogService {
 
         Dictionary<int, UserAccount> userAccountDict = new Dictionary<int, UserAccount>();
-        Dictionary<int, PasswordLog> credentialDict = new Dictionary<int, PasswordLog>();
+        Dictionary<int, CredentialLog> credentialDict = new Dictionary<int, CredentialLog>();
         List<ActiveLog> activeLogsList = new List<ActiveLog>(); // Main Dictionary
         String activeLogCsvFilePath = "CodeCrateData/ActiveLoggingSystem/ActiveLogs.csv";
-        String userAccountCsvFilePath = "CodeCrateData/UseraccountData/UserAccount.csv";
-        String credentialCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
+        String userAccountCsvFilePath = "CodeCrateData/UserAccountData/UserAccount.csv";
+        String credentialCsvFilePath = "CodeCrateData/CredentialLogData/CredentialLog.csv";
 
 
 
@@ -23,7 +23,7 @@ namespace CodeCrateData {
         public async Task loadUpLogs() {
             activeLogsList = (await _codeCrateCsv.LoadCollection<ActiveLog>(activeLogCsvFilePath)).ToList();
             userAccountDict = (await _codeCrateCsv.LoadCollection<UserAccount>(userAccountCsvFilePath)).ToDictionary(r => r.UserID, r => r);
-            credentialDict = (await _codeCrateCsv.LoadCollection<PasswordLog>(credentialCsvFilePath)).ToDictionary(r => r.PassID, r => r);
+            credentialDict = (await _codeCrateCsv.LoadCollection<CredentialLog>(credentialCsvFilePath)).ToDictionary(r => r.PassID, r => r);
         }
 
         public async Task accountLog(UserAccount userAccount, string logEvent) {

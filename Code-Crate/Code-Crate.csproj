@@ -21,7 +21,7 @@
   <None Include="CodeCrateData/UserAccountData/UserAccount.csv">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>
-  <None Include="CodeCrateData/PasswordLogData/PasswordLog.csv">
+  <None Include="CodeCrateData/CredentialLogData/CredentialLog.csv">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>
   </ItemGroup>

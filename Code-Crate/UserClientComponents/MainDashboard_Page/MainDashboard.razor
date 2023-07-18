@@ -1,9 +1,9 @@
 @page "/MainDashboard/{userID:int}"
 @using CodeCrateData
 @inject UserAccountService _userAccountService
-@inject PasswordLogService _passLogService
+@inject CredentialLogService _credentialLogService
 @inject IClipboardService ClipboardService
-@inject PassLogValidator _passLogValidator
+@inject CredentialLogMessenger _credentialLogMessenger
 @inject ActiveLogService _activeLogService
 @using Microsoft.AspNetCore.Components.QuickGrid
 
@@ -75,7 +75,7 @@
     bool displayAddEditComponent = false;
     private int id { get; set; }
     protected UserAccount userAccount = new();
-    protected PasswordLog passLog = new();
+    protected CredentialLog credLog = new();
     protected List<String> listOfErrorPrompts = new List<String>();
     public bool ModalBoxToMessageUser { get; set; }
 
@@ -83,13 +83,13 @@
     
     PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
 
-    IEnumerable<PasswordLog> passLogs = Enumerable.Empty<PasswordLog>(); 
+    IEnumerable<CredentialLog> credLogs = Enumerable.Empty<CredentialLog>(); 
 
-    IQueryable<PasswordLog> FilteredItems
+    IQueryable<CredentialLog> FilteredItems
     {
         get
         {
-            var result = passLogs.AsQueryable();
+            var result = credLogs.AsQueryable();
             return result!;
         }
     } 
@@ -98,7 +98,7 @@
     protected override async Task OnInitializedAsync() {   
         await _userAccountService.LoadUserAccounts();
         userAccount = await _userAccountService.GetAccountData(userID);
-        passLogs = await _passLogService.GetUserPasswords(userID);
+        credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
     
     private void addEditCredentials(int id) {
@@ -108,28 +108,28 @@
 
     private async Task onEditComplete() {
         displayAddEditComponent = false;
-        passLogs = await _passLogService.GetUserPasswords(userID);
+        credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
 
     private async Task ModalBoxToMessageUserClose(bool accepted) {
         if (accepted) {
-            await _passLogService.DeletePassLog(id, userID);
+            await _credentialLogService.DeleteCredential(id, userID);
         }
         ModalBoxToMessageUser = false;
-        passLogs = await _passLogService.GetUserPasswords(userID);
+        credLogs = await _credentialLogService.LoadAllUserCredentials(userID);
     }
 
     private async Task copyPasswordBtn(int passID)
     {   
-        var currentCredential = await _passLogService.GetPassLogData(passID);
+        var currentCredential = await _credentialLogService.GetCurrentCredentialData(passID);
         await ClipboardService.CopyToClipboard(currentCredential.Password);
-        await _passLogService.encryptCredential(currentCredential);
+        await _credentialLogService.encryptCredential(currentCredential);
     }
 
     private async Task ModalBoxToMessageUserOpen(int passID) {
         
-        var getCurrentPassID = await _passLogService.GetPassLogData(passID);
-        listOfErrorPrompts = _passLogValidator.ItemWarnings(getCurrentPassID, "DeleteWarning");
+        var getCurrentPassID = await _credentialLogService.GetCurrentCredentialData(passID);
+        listOfErrorPrompts = _credentialLogMessenger.ItemWarnings("DeleteWarning");
         id = passID;
         ModalBoxToMessageUser = true;
        

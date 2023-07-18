@@ -3,7 +3,7 @@ namespace CodeCrateData {
     public class UserAccountService {   
 
         Dictionary<int, UserAccount> userAccountDict = new Dictionary<int, UserAccount>(); // Main Dictionary
-        String userAccountCsvFilePath = "CodeCrateData/UseraccountData/UserAccount.csv";
+        String userAccountCsvFilePath = "CodeCrateData/UserAccountData/UserAccount.csv";
 
         CodeCrateDataCsv _userAccountCsv;
         ActiveLogService _activeLog;

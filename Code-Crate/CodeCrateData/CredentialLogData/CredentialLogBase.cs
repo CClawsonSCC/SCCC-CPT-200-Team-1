@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using CsvHelper.Configuration.Attributes;
 
 namespace CodeCrateData {
-    public class PasswordLog
+    public class CredentialLog
     {   
         // This index tag helps the CsvHelper determine where to put these values on the csv file.
         [Index(0)]
