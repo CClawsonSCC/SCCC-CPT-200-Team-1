@@ -1,6 +1,6 @@
 @using CodeCrateData
 @inject UserAccountService _userAccountService
-@inject PasswordLogService _passLogService
+@inject CredentialLogService _credentialLogService
 @inject ActiveLogService _activeLogService
 
 
@@ -14,20 +14,20 @@
                         <button class="btn btn-dark" @onclick="CancelEvent">Close</button>
                     </div>
                     <div class="modal-body">
-                        <EditForm Model="@passLog">
+                        <EditForm Model="@credLog">
                         <DataAnnotationsValidator />
 
                             <div class="col-md-7 col-lg-5 offset-xl-1 " style="width: 100%;" >
                                 <div class="form-group">
                                     <label for="Title" class="control-label" style = "line-height:40px;">Application::</label>
-                                    <InputText class="form-control" style = "width:89%;;border:1px solid;" @bind-Value="passLog.Application" />
-                                    <ValidationMessage For="@(()=> passLog.Application)" />
+                                    <InputText class="form-control" style = "width:89%;;border:1px solid;" @bind-Value="credLog.Application" />
+                                    <ValidationMessage For="@(()=> credLog.Application)" />
                                     
                                 </div>
                                 <div class="form-group">
                                     <label for="Title" class="control-label" style = "line-height:40px;">Username:</label>
-                                    <InputText class="form-control" style = "width:89%;;border:1px solid;" @bind-Value="passLog.Username" />
-                                    <ValidationMessage For="@(()=> passLog.Username)" />
+                                    <InputText class="form-control" style = "width:89%;;border:1px solid;" @bind-Value="credLog.Username" />
+                                    <ValidationMessage For="@(()=> credLog.Username)" />
                                 
                                 </div>
                                 <div class="form-group">
@@ -35,7 +35,7 @@
                                     <div class="d-flex justify-content-around align-items-center mb-4">
     
                                         
-                                        <InputText type= "@togglePassword" class="form-control" style = "width:100%; border:1px solid;" @bind-Value="passLog.Password" />
+                                        <InputText type= "@togglePassword" class="form-control" style = "width:100%; border:1px solid;" @bind-Value="credLog.Password" />
                                         <li><Button Color="ButtonColor.Dark" Size="Size.Small" @onclick="@ShowPassword"><Icon Name="IconName.Eye" /></Button></li>
 
                                     </div>
@@ -51,12 +51,12 @@
                                         <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@GeneratePassword">Generate</Button>
                                         
                                     </div>
-                                    <ValidationMessage For="@(()=> passLog.Password)" />
+                                    <ValidationMessage For="@(()=> credLog.Password)" />
                                     
                                 
                                 </div>
                                 <div class="testsss">
-                                @if (passLog.Application == "" || passLog.Username == "" || passLog.Password == "") {
+                                @if (credLog.Application == "" || credLog.Username == "" || credLog.Password == "") {
 
                                     <li><button class="btn btn-primary"  disabled= "true" @onclick="SaveTask">Save</button></li>
                                 }
@@ -85,7 +85,7 @@
     [Parameter] public EventCallback OnComplete { get; set; } // This allows me to communicate with the parent component to refresh the table.
     protected string togglePassword = "password";
     protected int passLength = 8;
-    protected PasswordLog passLog = new();
+    protected CredentialLog credLog = new();
     protected string Title = "Add";
 
     protected override async Task OnParametersSetAsync()
@@ -93,7 +93,7 @@
         if (passID != 0 )
         {
             Title = "Edit";
-            passLog = await _passLogService.GetPassLogData(passID);
+            credLog = await _credentialLogService.GetCurrentCredentialData(passID);
         }
     }
 
@@ -101,10 +101,10 @@
     protected async Task SaveTask() { 
         
         if (passID != 0) {
-            await _passLogService.UpdatePassLog(passLog, userID);
+            await _credentialLogService.UpdateCredential(credLog, userID);
         }
         else {
-            await _passLogService.AddUserPassword(passLog, userID);    
+            await _credentialLogService.AddCredential(credLog, userID);    
         }
         await CancelEvent();
     }
@@ -117,7 +117,7 @@
 
     protected void GeneratePassword() {
         string newGenPass =  CodeCrateData.PasswordGenerator.GetRandomAlphanumericString(passLength);
-        passLog.Password =  newGenPass;
+        credLog.Password =  newGenPass;
     }
 
     protected void ShowPassword() {
