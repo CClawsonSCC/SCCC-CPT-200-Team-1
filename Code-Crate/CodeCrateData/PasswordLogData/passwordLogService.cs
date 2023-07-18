@@ -6,12 +6,13 @@ namespace CodeCrateData {
         CodeCrateDataCsv _passLogCsv;
         
         Cipher _cipher;
+        ActiveLogService _activeLog;
         String passLogCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
-        public PasswordLogService(CodeCrateDataCsv passwordLogCsv, Cipher cipher) {
+        public PasswordLogService(CodeCrateDataCsv passwordLogCsv, Cipher cipher, ActiveLogService activeLog) {
             _passLogCsv = passwordLogCsv;
             _cipher = cipher;
-            
+            _activeLog = activeLog;
             
         }
 
@@ -34,9 +35,8 @@ namespace CodeCrateData {
             var testCipher = _cipher.Encrypt(passLog.Password);
             passLog.Password = testCipher;
             passwordLogDict.Add(passLog.PassID, passLog);
-            
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
-            
+            await _activeLog.credentialLog(passLog.PassID, userID, 0);
         }
 
         public Task<PasswordLog> GetPassLogData(int id) {
@@ -47,17 +47,21 @@ namespace CodeCrateData {
             return Task.FromResult(passwordLogDict[id]);
         }
 
-        public async Task UpdatePassLog(PasswordLog passLog) {
+        public async Task UpdatePassLog(PasswordLog passLog, int userID) {
             var testCipher = _cipher.Encrypt(passLog.Password);
             passLog.Password = testCipher;
+
             passwordLogDict[passLog.PassID] = passLog;
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
+            await _activeLog.credentialLog(passLog.PassID, userID, 3);
 
             
         }
 
-        public async Task DeletePassLog(int id) {
+        public async Task DeletePassLog(int id, int userID) {
             passwordLogDict.Remove(id);
+            await _activeLog.credentialLog(id, userID, 1);
+
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
         }

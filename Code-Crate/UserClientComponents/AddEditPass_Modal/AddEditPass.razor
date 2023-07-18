@@ -101,15 +101,10 @@
     protected async Task SaveTask() { 
         
         if (passID != 0) {
-            await _passLogService.UpdatePassLog(passLog);
-            await _activeLogService.credentialLog(passLog.PassID, userID, 2);
-            
-            
+            await _passLogService.UpdatePassLog(passLog, userID);
         }
         else {
-            await _passLogService.AddUserPassword(passLog, userID);
-            await _activeLogService.credentialLog(passLog.PassID, userID, 0);
-                
+            await _passLogService.AddUserPassword(passLog, userID);    
         }
         await CancelEvent();
     }

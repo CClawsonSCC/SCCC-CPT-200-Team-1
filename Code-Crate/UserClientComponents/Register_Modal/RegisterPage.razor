@@ -99,7 +99,6 @@
         else {
             displayLoginErrorMsg = false;
             await _userAccountService.AddUserAccount(userAccount);
-            await _activeLogService.accountLog(userAccount, "New user account has been registered!");
             await displayMessage.InvokeAsync();
             await CancelEvent();
         }

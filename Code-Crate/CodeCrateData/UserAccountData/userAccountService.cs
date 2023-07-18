@@ -6,9 +6,11 @@ namespace CodeCrateData {
         String userAccountCsvFilePath = "CodeCrateData/UseraccountData/UserAccount.csv";
 
         CodeCrateDataCsv _userAccountCsv;
+        ActiveLogService _activeLog;
         int accountNum = 0;
-        public UserAccountService(CodeCrateDataCsv userAccountCsv) {
+        public UserAccountService(CodeCrateDataCsv userAccountCsv, ActiveLogService activeLog) {
             _userAccountCsv = userAccountCsv;
+            _activeLog = activeLog;
         }
 
         // This will keep the CSV from overriding on each time the home page is loaded up.
@@ -25,7 +27,7 @@ namespace CodeCrateData {
             userAccount.UserID = lastId + 1;
             userAccountDict.Add(userAccount.UserID, userAccount);
             await _userAccountCsv.WriteCollection<UserAccount>(userAccountDict.Values, userAccountCsvFilePath);
-            
+            await _activeLog.accountLog(userAccount, "Account has been Created!");
         }
 
 
