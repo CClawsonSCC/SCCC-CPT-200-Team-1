@@ -17,19 +17,21 @@ Developed by Microsoft. Utilized in the Code Crate front end UI.
 Written by Josh Close. Used in backend database management
 
 ## Meet The Team
-### Connor Clawson (Project Manager)
+### Connor Clawson (Project Manager / Developer)
 - Co-manages repository with Bailey Ducommun
 - Developed encryption solution (coming 7/21)
 - Coordinates tasks with entire team
 
-### Bailey Ducommun (Developer)
+### Bailey Ducommun (Full-Stack Developer)
 - Co-manages repository with Connor Clawson
 - Lead API implementation
 
-### Phuong Anh Nguyen (Developer)
+### Phuong Anh Nguyen (Back-End Developer)
 - Developed server backend
+- Co-developed back end with Bailey Ducommun
+- Co-developed back end with Connor Clawson
 
-### Ryan Schoonover (Developer)
+### Ryan Schoonover (Front-End Developer)
 - Designed custom graphics for front end
 - Co-developed front end with Bailey Ducommun
 
