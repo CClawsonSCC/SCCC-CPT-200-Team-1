@@ -7,6 +7,7 @@ namespace CodeCrateData {
 
         CodeCrateDataCsv _userAccountCsv;
         ActiveLogService _activeLog;
+        Cipher _cipher = new Cipher();
         int accountNum = 0;
         public UserAccountService(CodeCrateDataCsv userAccountCsv, ActiveLogService activeLog) {
             _userAccountCsv = userAccountCsv;
@@ -25,18 +26,18 @@ namespace CodeCrateData {
         public async Task AddUserAccount(UserAccount userAccount) {  
             var lastId = userAccountDict.Count() == 0 ? 0 : userAccountDict.Keys.Max();
             userAccount.UserID = lastId + 1;
+            userAccount.Password = _cipher.Encrypt(userAccount.Password);
             userAccountDict.Add(userAccount.UserID, userAccount);
             await _userAccountCsv.WriteCollection<UserAccount>(userAccountDict.Values, userAccountCsvFilePath);
             await _activeLog.accountLog(userAccount, "Account has been Created!");
         }
-
 
         public async Task<bool> VerifyUserAccount(UserAccount userAccount) {
             
             foreach (var accounts in userAccountDict.Values)
             {   
                 accountNum++;
-                if (accounts.Username == userAccount.Username && accounts.Password == userAccount.Password) {
+                if (accounts.Username == userAccount.Username && _cipher.Decrypt(accounts.Password) == userAccount.Password) {    
                     return await Task.FromResult(true);
                 }
             }
@@ -60,9 +61,6 @@ namespace CodeCrateData {
                 }
             }
             return await Task.FromResult(false);
-
-
         }
-
     }
 }

@@ -23,7 +23,6 @@ namespace CodeCrateData {
             passwordLogDict = (await _passLogCsv.LoadCollection<PasswordLog>(passLogCsvFilePath)).ToDictionary(r => r.PassID, r => r);
             
             return passwordLogDict.Values.Where(x => x.UserID == userID);
-             
         }
 
         // Register a new user

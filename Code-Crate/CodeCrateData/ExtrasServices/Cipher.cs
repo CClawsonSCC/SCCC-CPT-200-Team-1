@@ -1,26 +1,14 @@
 using System;
 using System.Collections;
 
-/// <summary>
-/// 
-/// </summary>
 namespace CodeCrateData {
 
-
+  /// <summary>
+  /// The Cipher class takes a string of UTF-16 characters and creates an encrypted or decrypted version.
+  /// </summary>
   public class Cipher
   {
-    private ArrayList _key = new ArrayList() { 1, 2, 3, 4, 5, 6 };
-    private ushort[] keyList = { 1, 2, 3, 4, 5, 6 };
-    private int _keySize = 6;
-    
-    /* -- Theory --
-    * Type conversion is necessary for this to work.
-    * Character by character, convert <char> to <ushort>
-    * the bit shift operation is as follows:
-    * ((ushort_Character_Value << degree_Of_Rotation) | (ushort_Character_Value >> (32 - degree_Of_Rotation)))
-    * convert <ushort> back to <char>
-    * append each <char> in order to the string
-    */
+    private readonly ushort[] _key = { 1, 2, 3, 4, 5, 6 }; // FIXME: Replace with a more complicated key.
     
     /// <summary>
     /// Increments the values of the characters
@@ -34,17 +22,13 @@ namespace CodeCrateData {
 
       for (int j = 0; j < inString.Length; j++)
       {
-        /*
-        int digit = Convert.ToInt32(inString[j]);
-        digit += _key.IndexOf(i);
-        outString += (Convert.ToChar(digit));
-        */
-
         ushort digit = Convert.ToUInt16(inString[j]);
-        digit = (ushort)((digit << keyList[i]) | digit >> (16 - keyList[i]));
-        outString += (Convert.ToChar(digit));
 
-        i = (i == _keySize - 1) ? 0 : i + 1;
+        digit += _key[i]; // Increment the character...
+        digit = (ushort)((digit << _key[i]) | digit >> (16 - _key[i])); // then rotate the bits.
+
+        outString += (Convert.ToChar(digit));
+        i = (i >= _key.Count() - 1) ? 0 : i + 1;
       }
       return outString;
     } 
@@ -61,17 +45,13 @@ namespace CodeCrateData {
       
       for (int j = 0; j < inString.Length; j++)
       {
-        /*         
-        int digit = Convert.ToInt32(inString[j]);
-        digit -= _key.IndexOf(i);
-        outString += (Convert.ToChar(digit));
-        */
-        
         ushort digit = Convert.ToUInt16(inString[j]);
-        digit = (ushort)((digit >> keyList[i]) | digit << (16 - keyList[i]));
-        outString += (Convert.ToChar(digit));
 
-        i = (i == _keySize - 1) ? 0 : i + 1;
+        digit = (ushort)((digit >> _key[i]) | digit << (16 - _key[i])); // Rotate the bits...
+        digit -= _key[i]; // then decrement the character.
+
+        outString += (Convert.ToChar(digit));
+        i = (i >= _key.Count() - 1) ? 0 : i + 1;
       }
       return outString;
     }
