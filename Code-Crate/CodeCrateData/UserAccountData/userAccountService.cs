@@ -27,6 +27,7 @@ namespace CodeCrateData {
             var lastId = userAccountDict.Count() == 0 ? 0 : userAccountDict.Keys.Max();
             userAccount.UserID = lastId + 1;
             userAccount.Password = _cipher.Encrypt(userAccount.Password);
+            userAccount.ConfirmPassword = _cipher.Encrypt(userAccount.ConfirmPassword);
             userAccountDict.Add(userAccount.UserID, userAccount);
             await _userAccountCsv.WriteCollection<UserAccount>(userAccountDict.Values, userAccountCsvFilePath);
             await _activeLog.accountLog(userAccount, "Account has been Created!");

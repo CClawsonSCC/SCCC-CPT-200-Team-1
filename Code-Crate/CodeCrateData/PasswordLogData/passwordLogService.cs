@@ -25,14 +25,15 @@ namespace CodeCrateData {
             return passwordLogDict.Values.Where(x => x.UserID == userID);
         }
 
-        // Register a new user
+        // Register a new credential from the user.
         public async Task AddUserPassword(PasswordLog passLog, int userID) {
         
             var lastId = passwordLogDict.Count() == 0 ? 0 : passwordLogDict.Keys.Max();
             passLog.PassID = lastId + 1;
             passLog.UserID = userID;
-            var testCipher = _cipher.Encrypt(passLog.Password);
-            passLog.Password = testCipher;
+            //passLog.Application = _cipher.Encrypt(passLog.Application);
+            //passLog.Username = _cipher.Encrypt(passLog.Username);
+            passLog.Password = _cipher.Encrypt(passLog.Password);
             passwordLogDict.Add(passLog.PassID, passLog);
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             await _activeLog.credentialLog(passLog.PassID, userID, 0);
@@ -40,8 +41,7 @@ namespace CodeCrateData {
 
         public Task<PasswordLog> GetPassLogData(int id) {
             var currentCredential = passwordLogDict[id];
-            var decryptCredentialPassword = _cipher.Decrypt(currentCredential.Password);
-            currentCredential.Password = decryptCredentialPassword;
+            currentCredential.Password = _cipher.Decrypt(currentCredential.Password);
             passwordLogDict[id] = currentCredential;
             return Task.FromResult(passwordLogDict[id]);
         }
@@ -50,8 +50,6 @@ namespace CodeCrateData {
             await encryptCredential(passLog);
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
             await _activeLog.credentialLog(passLog.PassID, userID, 3);
-
-            
         }
 
         public async Task DeletePassLog(int id, int userID) {
@@ -68,8 +66,6 @@ namespace CodeCrateData {
 
             passwordLogDict[passLog.PassID] = passLog;
             await _passLogCsv.WriteCollection<PasswordLog>(passwordLogDict.Values, passLogCsvFilePath);
-
         }
-
     }
 }
