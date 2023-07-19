@@ -11,18 +11,18 @@ namespace CodeCrateData {
     private readonly ushort[] _key = { 1, 2, 3, 4, 5, 6 }; // FIXME: Replace with a more complicated key.
     
     /// <summary>
-    /// Increments the values of the characters
+    /// Creates an encrypted string from another string.
     /// </summary>
-    /// <param name="inString">a string of characters to be encoded.</param>
-    /// <returns>an encrypted string</returns>
+    /// <param name="inString">A string of characters to be encoded.</param>
+    /// <returns>An encrypted string</returns>
     public string Encrypt(string inString) {
 
       string outString = "";
       int i = 0;
 
-      for (int j = 0; j < inString.Length; j++)
+      foreach (char character in inString)
       {
-        ushort digit = Convert.ToUInt16(inString[j]);
+        ushort digit = Convert.ToUInt16(character);
 
         digit += _key[i]; // Increment the character...
         digit = (ushort)((digit << _key[i]) | digit >> (16 - _key[i])); // then rotate the bits.
@@ -34,18 +34,17 @@ namespace CodeCrateData {
     } 
 
     /// <summary>
-    /// Decrements the values of the characters
+    /// Creates a decrypted string from another string.
     /// </summary>
-    /// <param name="inString">a string of characters to be decoded.</param>
-    /// <returns>a decrypted string</returns>
+    /// <param name="inString">A string of characters to be decoded.</param>
+    /// <returns>A decrypted string</returns>
     public string Decrypt(string inString) {
 
       string outString = "";
       int i = 0;
-      
-      for (int j = 0; j < inString.Length; j++)
+      foreach (char character in inString)
       {
-        ushort digit = Convert.ToUInt16(inString[j]);
+        ushort digit = Convert.ToUInt16(character);
 
         digit = (ushort)((digit >> _key[i]) | digit << (16 - _key[i])); // Rotate the bits...
         digit -= _key[i]; // then decrement the character.
