@@ -1,6 +1,9 @@
 # Code Crate<br>By Data Forge (SCCC CPT-200, Team-1)
 
-Code Crate is a fullstack, web-based password tracker created as a capstone project by a four person team from St Charles Community College in Cottleville, MO. The web application is designed to be accessable on the majority of PC's, tablets, and smartphones on the market today. 
+Code Crate is a fullstack, web-based password tracker created as a capstone project by a four person team from St Charles Community College in Cottleville, MO. The web application is designed to be accessable on the majority of PC's, tablets, and smartphones on the market today.
+
+## How To Use
+(Instructions for software use goes here)
 
 ## Under The Hood
 The backend is written in C# and makes use of the following libraries:
