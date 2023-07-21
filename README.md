@@ -11,7 +11,7 @@ Complilation of the source code requires installation of the listed libraries in
 ### Creating Credentials to Save
 -- Instructions for creating, modifying, and deleting saved data goes here --
 
-## Under The Hood {#under-the-hood}
+## Under The Hood
 The backend is written in C# and makes use of the following libraries:
 ### [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
 (Apache Licence 2.0)  
