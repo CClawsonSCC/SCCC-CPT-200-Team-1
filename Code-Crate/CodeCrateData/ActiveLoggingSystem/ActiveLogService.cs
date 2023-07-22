@@ -11,8 +11,6 @@ namespace CodeCrateData {
         String userAccountCsvFilePath = "CodeCrateData/UseraccountData/UserAccount.csv";
         String credentialCsvFilePath = "CodeCrateData/PasswordLogData/PasswordLog.csv";
 
-
-
         CodeCrateDataCsv _codeCrateCsv;
         
         ActiveLog activeLog = new ActiveLog();
@@ -35,7 +33,6 @@ namespace CodeCrateData {
 
             activeLogsList.Add(activeLog);
             await _codeCrateCsv.WriteCollection<ActiveLog>(activeLogsList, activeLogCsvFilePath);
-            
         }
 
         public async Task credentialLog(int passLogID, int userID, int isDeletedAdded) {
@@ -45,30 +42,19 @@ namespace CodeCrateData {
             activeLog.CurrentDateTime = DateTime.Now;
             activeLog.CurrentUserID = $"User-ID: {userAccount.UserID}";
             activeLog.CurrentUsername = $"Username: {userAccount.Username}";
-      
+
             if(isDeletedAdded == 0) {
                 activeLog.CurrentEventAction = $"Added a new credential: {credential.PassID}, {credential.Application}, {credential.Username}, {credential.Password}";
-
             }
             else if (isDeletedAdded == 1) {
                 activeLog.CurrentEventAction = $"Deleted a credential: {credential.PassID}, {credential.Application}, {credential.Username}, {credential.Password}";
             }
             else {
                 activeLog.CurrentEventAction = $"Updated a credential: {credential.PassID}, {credential.Application}, {credential.Username}, {credential.Password}";
- 
             }
 
             activeLogsList.Add(activeLog);
             await _codeCrateCsv.WriteCollection<ActiveLog>(activeLogsList, activeLogCsvFilePath);
-            
         }
-
-
-
-
     }
-    
-
-
-
 }
