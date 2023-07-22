@@ -1,0 +1,13 @@
+.navbar {
+    
+    justify-content: center;
+    background-color: #3f3d56;
+    color: #fff;
+    border-bottom: 3px solid #1266f1;
+  }
+
+.logo {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

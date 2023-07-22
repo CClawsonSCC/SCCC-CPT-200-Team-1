@@ -1,0 +1,143 @@
+@using CodeCrateData
+@inject UserAccountService _userAccountService
+@inject CredentialLogService _credentialLogService
+@inject ActiveLogService _activeLogService
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10,10,10,.8); " aria-modal="true" role="dialog" >
+            <div class="modal-dialog">
+                <div class="modal-content" style = "width:auto;">
+                    <div class="modal-header">
+                        <h4 class="modal-title">@Title Credentials</h4>
+                        <button class="btn btn-dark" @onclick="CancelEvent">Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <EditForm Model="@credLog">
+                        <DataAnnotationsValidator />
+
+                            <div class="col-md-7 col-lg-5 offset-xl-1 " style="width: 100%;" >
+                                <div class="form-group">
+                                    <label for="Title" class="control-label" style = "line-height:40px;">Application::</label>
+                                    <InputText class="form-control" style = "width:89%;;border:1px solid;" @bind-Value="credLog.Application" />
+                                    <ValidationMessage For="@(()=> credLog.Application)" />
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="Title" class="control-label" style = "line-height:40px;">Username:</label>
+                                    <InputText class="form-control" style = "width:89%;;border:1px solid;" @bind-Value="credLog.Username" />
+                                    <ValidationMessage For="@(()=> credLog.Username)" />
+                                
+                                </div>
+                                <div class="form-group">
+                                    <label for="Title" class="control-label" style = "line-height:40px;">Password:</label>
+                                    <div class="d-flex justify-content-around align-items-center mb-4">
+    
+                                        
+                                        <InputText type= "@togglePassword" class="form-control" style = "width:100%; border:1px solid;" @bind-Value="credLog.Password" />
+                                        <li><Button Color="ButtonColor.Dark" Size="Size.Small" @onclick="@ShowPassword"><Icon Name="IconName.Eye" /></Button></li>
+
+                                    </div>
+                                    <div>
+                                        Select a password length:
+                                        <select @bind="@passLength">
+                                            <option>8</option>
+                                            <option>10</option>
+                                            <option>12</option>
+                                            <option>14</option>
+                                            <option>16</option>
+                                        </select>
+                                        <Button Color="ButtonColor.Primary" Size="Size.Small" @onclick="@GeneratePassword">Generate</Button>
+                                        
+                                    </div>
+                                    <ValidationMessage For="@(()=> credLog.Password)" />
+                                    
+                                
+                                </div>
+                                <div class="testsss">
+                                @if(showLoadingButton) {
+                                    <li><Button Color="ButtonColor.Primary" Loading="true" LoadingText="Saving..." /></li>
+                                }
+                                else {
+                                    @if (credLog.Application == "" || credLog.Username == "" || credLog.Password == "") {
+                                        <li><button class="btn btn-primary"  disabled= "true" @onclick="SaveTask">Save</button></li>
+                                    }
+                                    else {
+                                        <li><button class="btn btn-primary"  disabled="@(!context.Validate())" @onclick="SaveTask">Save</button></li>
+                                    }
+                                }
+
+                                
+                                
+                                    <li><button class="btn btn-light" @onclick="CancelEvent">Cancel</button></li>
+                                </div>
+                            </div>
+                        </EditForm>
+                        </div>
+                        
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+@code 
+{
+    [Parameter] public int passID { get; set; } // This gets the ID from the parent, so this child componenet can use that ID.
+    [Parameter] public int userID { get; set; }
+    [Parameter] public EventCallback OnComplete { get; set; } // This allows me to communicate with the parent component to refresh the table.
+    protected string togglePassword = "password";
+    protected int passLength = 8;
+    protected CredentialLog credLog = new();
+    protected string Title = "Add";
+    protected bool showLoadingButton = false;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (passID != 0 )
+        {
+            Title = "Edit";
+            credLog = await _credentialLogService.GetCurrentCredentialData(passID);
+        }
+    }
+
+
+    protected async Task SaveTask() { 
+        
+        showLoadingButton = true;
+
+        if (passID != 0) {
+            await _credentialLogService.UpdateCredential(credLog, userID);
+        }
+        else {
+            await _credentialLogService.AddCredential(credLog, userID);    
+        }
+        await Task.Delay(1200);
+        await CancelEvent();
+    }
+
+
+    protected async Task CancelEvent()
+    {   
+        await OnComplete.InvokeAsync();
+    }
+
+    protected void GeneratePassword() {
+        string newGenPass =  CodeCrateData.PasswordGenerator.GetRandomAlphanumericString(passLength);
+        credLog.Password =  newGenPass;
+    }
+
+    protected void ShowPassword() {
+        if (togglePassword == "password") {
+            togglePassword = "text";
+        }
+        else {
+            togglePassword = "password";
+        } 
+        
+    }
+
+}
