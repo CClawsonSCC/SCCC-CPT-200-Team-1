@@ -60,7 +60,5 @@ Please note that these dependencies are not included in this repository and must
 
 ## Planned Features
 - Two-factor authentication
-- Data encryption
-- Password generator
 
 This repository is intended for the academic use of its contributors.
