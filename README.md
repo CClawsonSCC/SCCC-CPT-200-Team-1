@@ -26,15 +26,15 @@ Complilation of the source code requires installation of the listed libraries in
 ## Under The Hood
 The backend is written in C# and makes use of the following libraries:
 ### [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
-(Apache Licence 2.0)  
+&#9878; Apache Licence 2.0  
 A .NET API solution from Microsoft. Recomended by Bailey.
 
 ### [QuickGrid](https://aspnet.github.io/quickgridsamples/)
-(MIT Licence)  
+&#9878; MIT Licence  
 Developed by Microsoft. Utilized in the Code Crate front end UI.
 
 ### [CsvHelper](https://joshclose.github.io/CsvHelper/)
-(Apache Licence 2.0 & Microsoft Public Licence (MS-PL))  
+&#9878; Apache Licence 2.0 & Microsoft Public Licence (MS-PL)  
 Written by Josh Close. Used in backend database management
 
 Please note that these dependencies are not included in this repository and must be installed on your system in order to compilee.
