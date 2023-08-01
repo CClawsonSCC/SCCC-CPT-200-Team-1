@@ -4,6 +4,7 @@ using CsvHelper.Configuration.Attributes;
 
 namespace CodeCrateData {
 
+    // This class represents each property of the activeLog object that will be stored in the CSV file.
     public class ActiveLog {
 
         // This index tag helps the CsvHelper determine where to put these values on the csv file.

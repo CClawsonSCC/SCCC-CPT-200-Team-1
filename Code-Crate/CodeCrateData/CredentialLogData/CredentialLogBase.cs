@@ -2,6 +2,8 @@ using System.ComponentModel.DataAnnotations;
 using CsvHelper.Configuration.Attributes;
 
 namespace CodeCrateData {
+
+    // This is the object's properties for all credentials that the current user will be adding to the table.
     public class CredentialLog
     {   
         // This index tag helps the CsvHelper determine where to put these values on the csv file.

@@ -8,6 +8,8 @@ namespace CodeCrateData {
         CodeCrateDataCsv _userAccountCsv;
         ActiveLogService _activeLog;
         int accountNum = 0;
+
+        // This method initializes services that will be used here
         public UserAccountService(CodeCrateDataCsv userAccountCsv, ActiveLogService activeLog) {
             _userAccountCsv = userAccountCsv;
             _activeLog = activeLog;
@@ -21,7 +23,10 @@ namespace CodeCrateData {
                 accountNum = 0;
         }
 
-        // Register a new user
+        // Register a new user and create an Activelog for it
+        // It takes the last userID and adds 1 to it in order to increment the dictionary
+        // If there are no entries, then it will start at 1.
+        // Before a user account is added it goes through a duplicate check to make sure there are no duplicates
         public async Task AddUserAccount(UserAccount userAccount) {  
             var lastId = userAccountDict.Count() == 0 ? 0 : userAccountDict.Keys.Max();
             userAccount.UserID = lastId + 1;
@@ -30,7 +35,8 @@ namespace CodeCrateData {
             await _activeLog.accountLog(userAccount, "Account has been Created!");
         }
 
-
+        // This verification check takes the current account in the login box and checks the database for a match
+        // If the current account object returns true the user will be logged in.
         public async Task<bool> VerifyUserAccount(UserAccount userAccount) {
             
             foreach (var accounts in userAccountDict.Values)
@@ -44,14 +50,21 @@ namespace CodeCrateData {
             return await Task.FromResult(false);
         }
 
+        // Once it passes the verifcation check it will run this method in order to get the current account
         public async Task<UserAccount> GetCurrentAccount(UserAccount userAccount) {
                 return await Task.FromResult(userAccountDict[accountNum]);
             }
 
+
+        // This is called in the Maindashboard page to where we can get all of the current user's credentials
+        // This is tied by the userID
         public Task<UserAccount> GetAccountData(int id) {   
             return Task.FromResult(userAccountDict[id]);
         }
 
+        // This method is the duplicate check that happens when you try to register a new account
+        // It checks to make sure the username or email aren't used twice.
+        // If it returns true it will tell the user that there is a duplicate
         public async Task<bool> CheckAccountDuplicates(UserAccount userAccount) {
             foreach (var accounts in userAccountDict.Values)
             {   

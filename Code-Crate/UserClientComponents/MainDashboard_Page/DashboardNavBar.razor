@@ -43,6 +43,9 @@
 
     protected bool showLoadingButton = false;
 
+
+    // This button will call a script that clears out the user's browsing cache in order to create a
+    // official sign-out.
     public async void SignOutBtn() {
         showLoadingButton = true;
         await Task.Delay(1000);
