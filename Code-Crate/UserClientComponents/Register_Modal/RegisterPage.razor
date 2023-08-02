@@ -98,6 +98,8 @@
     protected bool displayLoginErrorMsg = false;
     protected bool showLoadingButton = false;
 
+    // This method will call that DuplicateCheck method to look for duplicates
+    // If true you cannot register an account until you fix the duplicates
     protected async Task RegisterAccount() {
         var test = await _userAccountService.CheckAccountDuplicates(userAccount);
         if (test == true) {
@@ -114,6 +116,8 @@
         
 
     }
+    // When the user clicks cancel, the "X", or register it will close out of the Modal
+    // So this is basically a way to make sure the modal classes on event click.
     protected async Task CancelEvent()
     {   
         await OnComplete.InvokeAsync();

@@ -2,8 +2,11 @@ using System.ComponentModel.DataAnnotations;
 using CsvHelper.Configuration.Attributes;
 
 namespace CodeCrateData {
+    
+    // This is the object's properties for all accounts.
     public class UserAccount
     {   // This index tag helps the CsvHelper determine where to put these values on the csv file.
+        // There are also error handling/ required properties set in place in order to prevent bad data being stored.
         [Index(0)]
         public int UserID { get; set; }
 

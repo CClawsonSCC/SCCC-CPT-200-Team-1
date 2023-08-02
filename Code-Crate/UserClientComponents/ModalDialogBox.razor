@@ -46,11 +46,15 @@
     public ModalDialogType DialogType { get; set; }
     private Button saveButton = new Button();
 
+
+    // After a button click event this method will run and close out of the modal
     private Task ModalCancel()
     {
         return OnClose.InvokeAsync(false);
     }
 
+    // When the Modal non-cancel action is clicked this will run. Right now it says deleting
+    // We plan to eventuall make the "ShowLoading" call a variable that will be set by the MessageService
     private async Task ModalOk()
     {
         
@@ -60,7 +64,7 @@
 
         await OnClose.InvokeAsync(true);
     }
-
+    
     public enum ModalDialogType
     {
         Ok,

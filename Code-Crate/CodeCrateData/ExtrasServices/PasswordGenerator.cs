@@ -3,6 +3,12 @@ using System.Security.Cryptography;
 
 namespace CodeCrateData {
 
+
+    // This class allows the user to generate a password. We get the length from the drop down box that the user can select.
+    // We have a variable set with multiple characters
+    // We can then take those characters and randomize it using the .Net built in Crpytography.
+    // We were able to find examples of a few password generators already made and were able to implement it into what we need.
+    // So far it is successful.
     public class PasswordGenerator {
 
     

@@ -6,6 +6,7 @@ using BlazorBootstrap;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// This came with the .Net framework, we just added the services we made to it.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<UserAccountService>();
